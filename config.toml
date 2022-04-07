@@ -1,3 +1,24 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://philotfarnsworth.github.io/Portfolio/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+enableRobotsTXT = 'true'
+title = "Michael Gardner - In His Own Words"
+
+## This may not be necessary this time
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = 'true'
+
+[outputs]
+  page = ['HTML', 'JSON']
+
+[params]
+  description = "Michael Gardner plays his greatest hits!"
+  keywords = "Portfolio, Hugo, Career, Web Development, Software, Hire Me"
+  author = "Michael Gardner"
+  email = "Idodevthings@gmail.com"
+  linkedIn = "www.linkedin.com/in/michael-gardner-az"
+  github = "PhiloTFarnsworth"
+  year = "2022"
+  ## TODO: Font Decisions
+  fonts = []
