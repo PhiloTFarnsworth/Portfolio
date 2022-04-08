@@ -6,20 +6,22 @@
 	<meta name="keywords" content="{{.Site.Params.Keywords}}">
 	<meta name="author" content="{{.Site.Params.Author}}">
 	<!--SEO STUFF END-->
-	<meta name="viewport" content="width=device-width">
+	
+    <meta name="viewport" content="width=device-width">
 	<meta http-equiv="Cache-control" content="public">
-	<!--Favicon STUFF-->
+	<link rel="canonical" href="{{ $URL }}" />
+
+    <!--Favicon STUFF-->
         <!-- TODO -->
 	<!--Favicon STUFF END-->
-	<!--Font STUFF-->
-    
+	
+    <!--Font STUFF-->
 	{{ range .Site.Params.Fonts }}
 		<link rel="preload" as="font" href="{{ $URL }}style/fonts/{{ . }}" crossorigin>
 	{{ end }}
 	<!--Font STUFF END-->
-	<link rel="canonical" href="{{ $URL }}" />
-    <!-- TODO
-	    <link rel="stylesheet" href="{{ $URL }}style/style.css">
-    -->
+	<link rel="stylesheet" href="{{ $URL }}style/style.css">
+	<!-- Devicon https://devicon.dev/ -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 	<title>{{.Site.Title}}</title>
 </head>

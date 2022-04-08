@@ -6,7 +6,7 @@ highlights: [
     "Wrote documentation to explain both the utility and function of the BitSprite program",
     "Built a series of tests to ensure that new updates do not break previous functionality"
 ]
-tools: ["Go"]
+tools: ["go", "vscode"]
 projectURL: "https://github.com/PhiloTFarnsworth/BitSprite"
 repoURL: "https://github.com/PhiloTFarnsworth/BitSprite"
 projectStart: 2021-04-01

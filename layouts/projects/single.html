@@ -1,31 +1,56 @@
-{{ define "main" }}
-    <section>
-        <!-- TODO: Consistent site header? -->
-        <h1>{{ .Title }}</h1>
-        <h2>{{ .Params.Buzz }}</h2>
-        <aside>{{ .Params.ProjectStart }}-{{ .Params.ProjectEnd }}</aside>
-        {{ if eq .Params.ProjectURL .Params.RepoURL }}
+{{ define "header" }}
+<header>
+    <h1>{{ .Title }}</h1>
+    <div>
+        <div>
+            <aside>{{ .Params.ProjectStart }}-{{ .Params.ProjectEnd }}</aside>
+        </div>
+        <div>
+            <h2>{{ .Params.Buzz }}</h2>
+        </div>
+        <div>
+            {{ if eq .Params.ProjectURL .Params.RepoURL }}
             <a href="{{ .Params.ProjectURL }}">See the Project Here!</a>
-        {{ else }}
+            {{ else }}
             <a href="{{ .Params.ProjectURL }}" alt="{{ .Title }} Project">See the Project Here!</a>
             <a href="{{ .Params.RepoURL}}" alt="{{ .Title }} Repository">Check out the Project's Development!</a>
-        {{ end }}
-        <img src='{{ index (.Resources.Match "logo/*") 0 }}'/>
-        <ul>
-            {{ range .Params.Highlights }}
-                <li>
-                    {{ . }}
-                </li>
             {{ end }}
-        </ul>
-        <ul>
-            {{ range .Params.Tools }}
-                <li>{{ . }}</li>
-            {{ end }}
-        </ul>
-        {{ range .Resources.Match "media/*" }}
-            <img src="{{ . }}"/>
-        {{ end }}
+        </div>
+    </div>
+</header>
+{{ end }}
 
-    </section>
+{{ define "main" }}
+<!-- banner logo under header? 
+<img src='{{ index (.Resources.Match "logo/*") 0 }}' />
+-->
+<!-- Hightlights left, smaller Tools display right -->
+<div>
+<ul>
+    {{ range .Params.Highlights }}
+        <li>
+            {{ . }}
+        </li>
+    {{ end }}
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th colspan="{{ len .Params.Tools }}">Tooling
+    </thead>
+    <tbody>
+        <tr>
+        {{ range .Params.Tools }}
+            <td> <i class="devicon-{{ . }}-plain colored" title="{{.}}"></i>
+        {{ end }}
+    </tbody>
+</table>
+</div>
+<!-- media along the bottom 
+<div class="mediaBox">
+{{ range .Resources.Match "media/*" }}
+    <img src="{{ . }}" />
+{{ end }}
+</div>
+-->
 {{ end }}
