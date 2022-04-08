@@ -1,0 +1,22 @@
+{{ $this := .}}
+{
+    "title": "{{ .Title }}",
+    "buzz": "{{ .Params.Buzz }}",
+    "highlights": {{ jsonify .Params.Highlights }},
+    "tools": {{ jsonify .Params.Tools }},
+    "projectURL": "{{ .Params.ProjectURL }}",
+    "repoURL": "{{ .Params.RepoURL }}",
+    "projectStart": "{{ .Params.ProjectStart }}",
+    "projectEnd": "{{ .Params.ProjectEnd }}",
+    "images": [
+        {{range $image := .Resources.Match "media/*" }} 
+            "{{$image}}"{{ if eq $image (index (last 1 ($this.Resources.Match "media/*")) 0 )}}{{else}},{{end}} 
+        {{ end }}
+    ],
+    "logo": [
+        {{range $image := .Resources.Match "logo/*" }} 
+            "{{$image}}"{{ if eq $image (index (last 1 ($this.Resources.Match "logo/*")) 0 )}}{{else}},{{end}} 
+        {{ end }}
+    ],
+    "permalink": "{{ .Permalink }}"
+}

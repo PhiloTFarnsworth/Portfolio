@@ -1,0 +1,31 @@
+{{ define "main" }}
+    <section>
+        <!-- TODO: Consistent site header? -->
+        <h1>{{ .Title }}</h1>
+        <h2>{{ .Params.Buzz }}</h2>
+        <aside>{{ .Params.ProjectStart }}-{{ .Params.ProjectEnd }}</aside>
+        {{ if eq .Params.ProjectURL .Params.RepoURL }}
+            <a href="{{ .Params.ProjectURL }}">See the Project Here!</a>
+        {{ else }}
+            <a href="{{ .Params.ProjectURL }}" alt="{{ .Title }} Project">See the Project Here!</a>
+            <a href="{{ .Params.RepoURL}}" alt="{{ .Title }} Repository">Check out the Project's Development!</a>
+        {{ end }}
+        <img src='{{ index (.Resources.Match "logo/*") 0 }}'/>
+        <ul>
+            {{ range .Params.Highlights }}
+                <li>
+                    {{ . }}
+                </li>
+            {{ end }}
+        </ul>
+        <ul>
+            {{ range .Params.Tools }}
+                <li>{{ . }}</li>
+            {{ end }}
+        </ul>
+        {{ range .Resources.Match "media/*" }}
+            <img src="{{ . }}"/>
+        {{ end }}
+
+    </section>
+{{ end }}
