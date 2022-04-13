@@ -1,0 +1,108 @@
+svg {
+    transform-box: fill-box;
+}
+
+#skybox {
+    animation: skybox 8s ease-in-out 3s infinite normal forwards;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+#stars {
+    opacity: 0%;
+    animation: star-rise 8s ease-in-out 3s infinite ;
+}
+
+#mountain{
+    animation: mountain-slide 50s linear infinite forwards;
+}
+
+#hills{
+    animation: hills-slide 50s linear infinite forwards;
+    background: linear-gradient(rgba(0,0,255, .0), 30%, rgba(0,0,128, .8));
+}
+
+#desert{
+    animation: road-slide 2.5s linear infinite forwards;
+    background: linear-gradient(rgba(0,0,255, .0), 15%, rgba(0,0,128, .8));
+}
+#skyBack{
+    animation: cloud-left 20s linear infinite forwards;
+}
+
+#skyFront{
+    animation: cloud-right 10s linear infinite forwards;
+}
+
+#sun {
+    animation: celestial 8s ease-in-out infinite normal forwards;
+    transform-origin: 0px 110px;
+    transform-box: fill-box;
+}
+
+#moon {
+    animation: celestial 8s ease-in-out 4s infinite normal forwards;
+    transform-origin: 0px 110px;
+    transform-box: fill-box;
+}
+
+@keyframes mountain-slide {
+    to {
+        transform: translateX(-80%);
+    }
+}
+
+@keyframes hills-slide {
+    to {
+        transform: translateX(-198%);
+    }
+}
+
+@keyframes road-slide {
+    to {
+        transform: translateX(-259%);
+    }
+}
+
+@keyframes skybox {
+    40% {
+        transform: rotate(180deg);
+    }
+    60% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes celestial {
+    40% {
+        transform: rotate(50deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes star-rise {
+    50% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}
+
+@keyframes cloud-left {
+    to {
+        transform: translateX(-200%);
+    }
+}
+
+@keyframes cloud-right {
+    to {
+        transform: translateX(200%);
+    }
+}
+
