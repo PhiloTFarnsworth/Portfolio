@@ -1,0 +1,154 @@
+/* 
+Initial Animation should be ~2.5s long.  We'll start at sunset (since it looks good) and push to night. 
+We'll move across the desert to the desired content point, and get some swaying motion on the clouds.
+*/
+svg {
+    width: 1600px;
+    height: 900px;
+}
+
+#viewportSVG {
+    opacity: .5;
+    animation: nightfall 2.5s ease-out 1s 1 normal forwards;
+}
+
+@keyframes nightfall {
+    to {
+        opacity: 1;
+    }
+}
+
+#skybox {
+    transform-origin: center;
+    transform-box: fill-box;
+    transform: rotate(90deg);
+    animation: skybox 2.5s ease-out 1s 1 normal forwards;
+}
+
+@keyframes skybox {
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+#stars {
+    opacity: 30%;
+    animation: star-rise 4s ease-in 1s 1 normal forwards, twinkle 3s ease-in-out 3.5s infinite;
+}
+
+@keyframes star-rise {
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes twinkle {
+    50% {
+        opacity: 65%
+    }
+    100% {
+        opacity: 100%
+    }
+}
+
+#mountain{
+    animation: mountain-slide 2.5s ease-out 1s 1 normal forwards;
+}
+
+@keyframes mountain-slide {
+    to {
+        transform: translateX(-10%);
+    }
+}
+
+#hills{
+    animation: hills-slide 2.5s ease-out 1s 1 normal forwards;
+}
+
+@keyframes hills-slide {
+    to {
+        transform: translateX(-30%);
+    }
+}
+
+#desert{
+    animation: desert-slide 2.5s ease-out 1s 1 normal forwards;
+}
+
+@keyframes desert-slide {
+    to {
+        transform: translateX(-155%);
+    }
+}
+
+#skyBack{
+    animation: cloud-left 3s ease-out 1s 1 normal forwards, cloud-drift-left 12s ease-in-out 4s infinite normal forwards;
+}
+
+@keyframes cloud-left {
+    to {
+        transform: translateX(-91%);
+    }
+}
+
+@keyframes cloud-drift-left {
+    50% {
+        transform: translateX(-93%);
+    }
+    100% {
+        transform: translateX(-91%);
+    }
+}
+
+#skyFront{
+    animation: cloud-right 3s ease-out 1s 1 normal forwards, cloud-drift 8s ease-in-out 4s infinite;
+}
+
+@keyframes cloud-right {
+    to {
+        transform: translateX(62%);
+    }
+}
+
+@keyframes cloud-drift {
+    50% {
+        transform: translateX(64%);
+
+    }
+    100% {
+        transform: translateX(62%);
+    }
+}
+
+#sun {
+    animation: celestial-set 4s ease-out 1s 1 normal forwards;
+    transform-origin: 0px 120px;
+    transform-box: fill-box;
+    transform: rotate(70deg);
+}
+@keyframes celestial-set {
+    100% {
+        transform: rotate(225deg);
+    }
+}
+
+
+#moon {
+    animation: celestial-rise 4s ease-out 1s 1 normal forwards;
+    transform-origin: 0px 120px;
+    transform-box: fill-box;
+    transform: rotate(225deg);
+}
+
+@keyframes celestial-rise {
+    100% {
+        transform: rotate(405deg);
+    }
+}
+
+
+
+
+
+
+
