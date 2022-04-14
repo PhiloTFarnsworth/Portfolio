@@ -1,15 +1,26 @@
+@use "sass:color";
+
+$Primary: #FFA000;
+$Secondary: #00FFFF; 
+$PrimaryDark: color.scale($Primary, $lightness: -80%);
+$SecondaryDark: color.scale($Secondary, $lightness: -80%);
+$PrimaryDarkTransp: color.scale($Primary, $lightness: -90%, $alpha: -10%);
+$SecondaryDarkTransp: color.scale($Secondary, $lightness: -90%, $alpha: -10%);
+$PrimaryLight: color.scale($Primary, $lightness: 60%);
+$SecondaryLight: color.scale($Secondary, $lightness: 60%);
+
 @mixin flexCol {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 @mixin flexRow {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 @mixin Spacing1Rem {
@@ -17,9 +28,37 @@
     padding: .5rem;
 }
 
+html {
+    background-image: linear-gradient($Secondary, $Primary);
+    letter-spacing: .05rem;
+    word-spacing: .25rem;
+    font-size: larger;
+}
+
+.gradientMask {
+    background-image: linear-gradient($SecondaryDark, $PrimaryDark);
+    opacity: .5;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    animation: background-gradient-to-night 5s ease-out 1s 1 normal forwards;
+    z-index: -2;
+}
+
+@keyframes background-gradient-to-night {
+    to {
+        opacity: 100%;
+    }
+}
+
 body {
-    margin: 4rem;
-    padding: 1rem;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     text-align: center;
 }
 
@@ -63,10 +102,59 @@ main {
     }
 }
 
+//16:9 ratio for testing.
+object {
+    width: 90vw;
+    height: auto;
+
+    position: fixed;
+    top: 0;
+    left: 5vw;
+
+    z-index: -1;
+}
+
 div {
     @include flexRow();
 }
 
 i {
     font-size: xx-large;
+}
+
+.content {
+    @include flexCol();
+
+    width: 70vw;
+    height: 0vh;
+
+    position: fixed;
+    top: 50vh;
+    left: 15vw;
+    overflow-y: hidden;
+
+    background-color: rgba(255, 230, 200, 0.85);
+    border-top: 5px solid rgb(64, 0, 196);
+    border-bottom: 5px solid rgb(197, 128, 0);
+    border-radius: 20px;
+
+    color: rgb(16, 0, 64);
+
+    animation: initial-border-shift 3.5s ease-out 1s 1 normal forwards, content-expand 1.5s ease-out 3s 1 normal forwards;
+}
+
+@keyframes initial-border-shift {
+    100% {
+        border-top: 5px solid $SecondaryDark;
+        border-bottom: 5px solid $PrimaryDark;
+        background-color: $SecondaryDarkTransp;
+        color: $PrimaryLight;
+    }
+}
+
+@keyframes content-expand {
+    100%{
+        height: 70vh;
+        top: 15vh;
+    }
 }

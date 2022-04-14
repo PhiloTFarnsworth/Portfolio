@@ -14,12 +14,12 @@ title = "Michael Gardner - In His Own Words"
 
 [params]
   description = "Michael Gardner plays his greatest hits!"
-  keywords = "Portfolio, Hugo, Career, Web Development, Software, Hire Me"
+  keywords = "Portfolio, Career, Web Development, HTML5, CSS3, Javascript, Go, Golang, Hugo, Developer, Software, Hire Me"
   author = "Michael Gardner"
   email = "Idodevthings@gmail.com"
   linkedIn = "www.linkedin.com/in/michael-gardner-az"
   github = "PhiloTFarnsworth"
   year = "2022"
-  background = "desert"
+  background = "desert.svg"
   ## TODO: Font Decisions
   fonts = []
