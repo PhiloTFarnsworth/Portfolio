@@ -1,6 +1,5 @@
 {{ define "header" }}
-<!-- banner -->
-<img class="bannerLogo" src='{{ index (.Resources.Match "logo/banner.*") 0}}' title="{{.Title}} Banner"/>
+<img class="bannerLogo" src='{{ index (.Resources.Match "logo/banner.*") 0}}' title="{{.Title}} Banner" />
 <header>
     <h1>{{ .Title }}</h1>
     <h2>{{ .Params.Buzz }}</h2>
@@ -8,10 +7,6 @@
 {{ end }}
 
 {{ define "main" }}
-<!-- banner logo under header? 
-<img src='{{ index (.Resources.Match "logo/*") 0 }}' />
--->
-<!-- Hightlights left, smaller Tools display right -->
 <div>
     <div class="data">
         <h3>URLs</h3>
@@ -23,11 +18,10 @@
         {{ end }}
         <h3>Tools</h3>
         <div>
-        {{ range .Params.Tools }}
+            {{ range .Params.Tools }}
             <i class="devicon-{{ . }}-plain colored" title="{{.}}"></i>
-        {{ end }}
+            {{ end }}
         </div>
-        <!-- timeline -->
         <h3>Timeline</h3>
         <p>{{ .Params.ProjectStart }}-{{ .Params.ProjectEnd }}</p>
     </div>
@@ -35,9 +29,9 @@
         <h3>Highlights</h3>
         <ul>
             {{ range .Params.Highlights }}
-                <li>
-                    {{ . }}
-                </li>
+            <li>
+                {{ . }}
+            </li>
             {{ end }}
         </ul>
     </div>

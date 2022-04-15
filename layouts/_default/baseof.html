@@ -7,14 +7,14 @@
     <div class="gradientMask"></div>
     {{ partial "background" .}}
     <div class="content">
-    {{ block "header" .}}
-    {{ end }}
-    <main>
-        {{ block "main" .}}
+        {{ block "header" .}}
         {{ end }}
-    </main>
-    {{ block "footer" . }}
-    {{ end }}
+        <main>
+            {{ block "main" .}}
+            {{ end }}
+        </main>
+        {{ block "footer" . }}
+        {{ end }}
     </div>
 </body>
 
