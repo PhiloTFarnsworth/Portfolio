@@ -1,5 +1,37 @@
 @use "sass:color";
 
+@font-face {
+    font-family: "OpenDyslexic";
+    src: url("fonts/OpenDyslexic-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OpenDyslexic";
+    src: url("fonts/OpenDyslexic-Italic.otf") format("opentype");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OpenDyslexic";
+    src: url("fonts/OpenDyslexic-Bold.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OpenDyslexic";
+    src: url("fonts/OpenDyslexic-BoldItalic.otf") format("opentype");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
 $Primary: #FFA000;
 $Secondary: #00FFFF; 
 $PrimaryDark: color.scale($Primary, $lightness: -80%);
@@ -33,6 +65,7 @@ html {
     letter-spacing: .05rem;
     word-spacing: .25rem;
     font-size: larger;
+    font-family: "OpenDyslexic";
 }
 
 .gradientMask {
@@ -60,32 +93,28 @@ body {
     padding: 0;
     overflow: hidden;
     text-align: center;
+    font-family: "OpenDyslexic";
 }
 
 header {
-    @include Spacing1Rem();
-    h1 {
-        margin: .25rem 0rem;
-    }
-    div {
-        div {
-            flex: 2;
-        }
-        div:first-of-type{
-            justify-content: flex-start;
-            flex: 1;
-        }
-        div:last-of-type{
-            justify-content: flex-end;
-            flex: 1;
-            flex-direction: column;
-        }
-    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    width: 90%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    text-align: center;
+    margin: 0;
+}
+
+h3 {
+    font-size: small;
 }
 
 main {
     @include flexCol();
-    @include Spacing1Rem();
     div {
         ul {
             @include Spacing1Rem();
@@ -116,10 +145,16 @@ object {
 
 div {
     @include flexRow();
+    justify-content: center;
+    align-content: center;
 }
 
 i {
     font-size: xx-large;
+}
+
+a {
+    color: $SecondaryLight;
 }
 
 .content {
@@ -141,6 +176,42 @@ i {
     color: rgb(16, 0, 64);
 
     animation: initial-border-shift 3.5s ease-out 1s 1 normal forwards, content-expand 1.5s ease-out 3s 1 normal forwards;
+}
+
+.col {
+    @include flexCol();
+}
+
+.data {
+    @include flexCol();
+    @include Spacing1Rem();
+    flex-grow: 1;
+}
+
+.highlights {
+    @include flexCol();
+    flex-grow: 3;
+}
+
+.mediaCenter {
+    @include flexCol();
+    flex-grow: 3;   
+    div {
+        width: 25vw;
+        height: 10vh;
+        img {
+            height: 90%;
+            width: 90%;
+            object-fit: cover;
+        }
+    }
+}
+
+
+
+.bannerLogo {
+    border-radius: 20px 20px 0px 0px;
+    width: 90%;
 }
 
 @keyframes initial-border-shift {

@@ -1,22 +1,9 @@
 {{ define "header" }}
+<!-- banner -->
+<img class="bannerLogo" src='{{ index (.Resources.Match "logo/banner.*") 0}}' title="{{.Title}} Banner"/>
 <header>
     <h1>{{ .Title }}</h1>
-    <div>
-        <div>
-            <aside>{{ .Params.ProjectStart }}-{{ .Params.ProjectEnd }}</aside>
-        </div>
-        <div>
-            <h2>{{ .Params.Buzz }}</h2>
-        </div>
-        <div>
-            {{ if eq .Params.ProjectURL .Params.RepoURL }}
-            <a href="{{ .Params.ProjectURL }}">See the Project Here!</a>
-            {{ else }}
-            <a href="{{ .Params.ProjectURL }}" alt="{{ .Title }} Project">See the Project Here!</a>
-            <a href="{{ .Params.RepoURL}}" alt="{{ .Title }} Repository">Check out the Project's Development!</a>
-            {{ end }}
-        </div>
-    </div>
+    <h2>{{ .Params.Buzz }}</h2>
 </header>
 {{ end }}
 
@@ -26,31 +13,41 @@
 -->
 <!-- Hightlights left, smaller Tools display right -->
 <div>
-<ul>
-    {{ range .Params.Highlights }}
-        <li>
-            {{ . }}
-        </li>
-    {{ end }}
-</ul>
-<table>
-    <thead>
-        <tr>
-            <th colspan="{{ len .Params.Tools }}">Tooling
-    </thead>
-    <tbody>
-        <tr>
-        {{ range .Params.Tools }}
-            <td> <i class="devicon-{{ . }}-plain colored" title="{{.}}"></i>
+    <div class="data">
+        <h3>URLs</h3>
+        {{ if eq .Params.ProjectURL .Params.RepoURL }}
+        <a href="{{ .Params.ProjectURL }}">Project Link</a>
+        {{ else }}
+        <a href="{{ .Params.ProjectURL }}" alt="{{ .Title }} Project">Project Link</a>
+        <a href="{{ .Params.RepoURL}}" alt="{{ .Title }} Repository">Repository</a>
         {{ end }}
-    </tbody>
-</table>
+        <h3>Tools</h3>
+        <div>
+        {{ range .Params.Tools }}
+            <i class="devicon-{{ . }}-plain colored" title="{{.}}"></i>
+        {{ end }}
+        </div>
+        <!-- timeline -->
+        <h3>Timeline</h3>
+        <p>{{ .Params.ProjectStart }}-{{ .Params.ProjectEnd }}</p>
+    </div>
+    <div class="highlights">
+        <h3>Highlights</h3>
+        <ul>
+            {{ range .Params.Highlights }}
+                <li>
+                    {{ . }}
+                </li>
+            {{ end }}
+        </ul>
+    </div>
+    <div class="mediaCenter">
+        <h3>Media</h3>
+        {{ range .Resources.Match "media/*" }}
+        <div>
+            <img src="{{ . }}" title="{{.Name}}" />
+        </div>
+        {{ end }}
+    </div>
 </div>
-<!-- media along the bottom 
-<div class="mediaBox">
-{{ range .Resources.Match "media/*" }}
-    <img src="{{ . }}" />
-{{ end }}
-</div>
--->
 {{ end }}

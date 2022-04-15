@@ -1,8 +1,37 @@
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("fonts/OpenDyslexic-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("fonts/OpenDyslexic-Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("fonts/OpenDyslexic-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("fonts/OpenDyslexic-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
 html {
   background-image: linear-gradient(#00FFFF, #FFA000);
   letter-spacing: 0.05rem;
   word-spacing: 0.25rem;
   font-size: larger;
+  font-family: "OpenDyslexic";
 }
 
 .gradientMask {
@@ -29,26 +58,24 @@ body {
   padding: 0;
   overflow: hidden;
   text-align: center;
+  font-family: "OpenDyslexic";
 }
 
 header {
-  margin: 0.5rem;
-  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  width: 90%;
 }
-header h1 {
-  margin: 0.25rem 0rem;
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  margin: 0;
 }
-header div div {
-  flex: 2;
-}
-header div div:first-of-type {
-  justify-content: flex-start;
-  flex: 1;
-}
-header div div:last-of-type {
-  justify-content: flex-end;
-  flex: 1;
-  flex-direction: column;
+
+h3 {
+  font-size: small;
 }
 
 main {
@@ -56,8 +83,6 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0.5rem;
-  padding: 0.5rem;
 }
 main div ul {
   margin: 0.5rem;
@@ -88,10 +113,16 @@ div {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  justify-content: center;
+  align-content: center;
 }
 
 i {
   font-size: xx-large;
+}
+
+a {
+  color: #99ffff;
 }
 
 .content {
@@ -111,6 +142,53 @@ i {
   border-radius: 20px;
   color: #100040;
   animation: initial-border-shift 3.5s ease-out 1s 1 normal forwards, content-expand 1.5s ease-out 3s 1 normal forwards;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  flex-grow: 1;
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 3;
+}
+
+.mediaCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 3;
+}
+.mediaCenter div {
+  width: 25vw;
+  height: 10vh;
+}
+.mediaCenter div img {
+  height: 90%;
+  width: 90%;
+  object-fit: cover;
+}
+
+.bannerLogo {
+  border-radius: 20px 20px 0px 0px;
+  width: 90%;
 }
 
 @keyframes initial-border-shift {
