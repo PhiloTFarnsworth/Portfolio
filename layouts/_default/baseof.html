@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="EN">
+
+{{ partial "head" .}}
+
+<body>
+    <div class="gradientMask"></div>
+    {{ partial "background" .}}
+    <div class="content">
+        {{ block "header" .}}
+        {{ end }}
+        <main>
+            {{ block "main" .}}
+            {{ end }}
+        </main>
+        {{ block "footer" . }}
+        {{ end }}
+    </div>
+</body>
+
+</html>
