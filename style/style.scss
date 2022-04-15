@@ -1,0 +1,231 @@
+@use "sass:color";
+
+@font-face {
+    font-family: "OpenDyslexic";
+    src: url("fonts/OpenDyslexic-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OpenDyslexic";
+    src: url("fonts/OpenDyslexic-Italic.otf") format("opentype");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OpenDyslexic";
+    src: url("fonts/OpenDyslexic-Bold.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OpenDyslexic";
+    src: url("fonts/OpenDyslexic-BoldItalic.otf") format("opentype");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+$Primary: #FFA000;
+$Secondary: #00FFFF; 
+$PrimaryDark: color.scale($Primary, $lightness: -80%);
+$SecondaryDark: color.scale($Secondary, $lightness: -80%);
+$PrimaryDarkTransp: color.scale($Primary, $lightness: -90%, $alpha: -10%);
+$SecondaryDarkTransp: color.scale($Secondary, $lightness: -90%, $alpha: -10%);
+$PrimaryLight: color.scale($Primary, $lightness: 60%);
+$SecondaryLight: color.scale($Secondary, $lightness: 60%);
+
+@mixin flexCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flexRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin Spacing1Rem {
+    margin: .5rem;
+    padding: .5rem;
+}
+
+html {
+    background-image: linear-gradient($Secondary, $Primary);
+    letter-spacing: .05rem;
+    word-spacing: .25rem;
+    font-size: larger;
+    font-family: "OpenDyslexic";
+}
+
+.gradientMask {
+    background-image: linear-gradient($SecondaryDark, $PrimaryDark);
+    opacity: .5;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    animation: background-gradient-to-night 5s ease-out 1s 1 normal forwards;
+    z-index: -2;
+}
+
+@keyframes background-gradient-to-night {
+    to {
+        opacity: 100%;
+    }
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+    font-family: "OpenDyslexic";
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    width: 90%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    text-align: center;
+    margin: 0;
+}
+
+h3 {
+    font-size: small;
+}
+
+main {
+    @include flexCol();
+    div {
+        ul {
+            @include Spacing1Rem();
+            display: flex;
+            flex-direction: column;
+            flex: 3;
+        }
+        table {
+            @include Spacing1Rem();
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+    }
+}
+
+//16:9 ratio for testing.
+object {
+    width: 90vw;
+    height: auto;
+
+    position: fixed;
+    top: 0;
+    left: 5vw;
+
+    z-index: -1;
+}
+
+div {
+    @include flexRow();
+    justify-content: center;
+    align-content: center;
+}
+
+i {
+    font-size: xx-large;
+}
+
+a {
+    color: $SecondaryLight;
+}
+
+.content {
+    @include flexCol();
+
+    width: 70vw;
+    height: 0vh;
+
+    position: fixed;
+    top: 50vh;
+    left: 15vw;
+    overflow-y: hidden;
+
+    background-color: rgba(255, 230, 200, 0.85);
+    border-top: 5px solid rgb(64, 0, 196);
+    border-bottom: 5px solid rgb(197, 128, 0);
+    border-radius: 20px;
+
+    color: rgb(16, 0, 64);
+
+    animation: initial-border-shift 3.5s ease-out 1s 1 normal forwards, content-expand 1.5s ease-out 3s 1 normal forwards;
+}
+
+.col {
+    @include flexCol();
+}
+
+.data {
+    @include flexCol();
+    @include Spacing1Rem();
+    flex-grow: 1;
+}
+
+.highlights {
+    @include flexCol();
+    flex-grow: 3;
+}
+
+.mediaCenter {
+    @include flexCol();
+    flex-grow: 3;   
+    div {
+        width: 25vw;
+        height: 10vh;
+        img {
+            height: 90%;
+            width: 90%;
+            object-fit: cover;
+        }
+    }
+}
+
+
+
+.bannerLogo {
+    border-radius: 20px 20px 0px 0px;
+    width: 90%;
+}
+
+@keyframes initial-border-shift {
+    100% {
+        border-top: 5px solid $SecondaryDark;
+        border-bottom: 5px solid $PrimaryDark;
+        background-color: $SecondaryDarkTransp;
+        color: $PrimaryLight;
+    }
+}
+
+@keyframes content-expand {
+    100%{
+        height: 70vh;
+        top: 15vh;
+    }
+}
