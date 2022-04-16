@@ -143,6 +143,14 @@ object {
     z-index: -1;
 }
 
+.bannerLogo {
+    border-radius: 20px 20px 0px 0px;
+    width: 90%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
 div {
     @include flexRow();
     justify-content: center;
@@ -209,10 +217,7 @@ a {
 
 
 
-.bannerLogo {
-    border-radius: 20px 20px 0px 0px;
-    width: 90%;
-}
+
 
 @keyframes initial-border-shift {
     100% {

@@ -1,0 +1,17 @@
+#Football {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: kickoff 10s ease-in-out 1s infinite normal;
+}
+
+@keyframes kickoff {
+    25% {
+        transform: translateX(-2000%) rotate(720deg) scale(250%);
+    }
+    75% {
+        transform: translateX(-2000%) rotate(720deg) scale(250%);
+    }
+    100% {
+        transform: translateX(-4000%) rotate(1440deg) scale(100%);
+    }
+}

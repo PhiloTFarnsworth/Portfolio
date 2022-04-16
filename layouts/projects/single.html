@@ -1,5 +1,5 @@
 {{ define "header" }}
-<img class="bannerLogo" src='{{ index (.Resources.Match "logo/banner.*") 0}}' title="{{.Title}} Banner" />
+<object class="bannerLogo" type="image/svg+xml" data='{{ index (.Resources.Match "logo/banner.*") 0}}' title="{{.Title}} Banner"></object>
 <header>
     <h1>{{ .Title }}</h1>
     <h2>{{ .Params.Buzz }}</h2>

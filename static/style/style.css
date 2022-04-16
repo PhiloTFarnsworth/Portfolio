@@ -108,6 +108,14 @@ object {
   z-index: -1;
 }
 
+.bannerLogo {
+  border-radius: 20px 20px 0px 0px;
+  width: 90%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
 div {
   display: flex;
   flex-direction: row;
@@ -184,11 +192,6 @@ a {
   height: 90%;
   width: 90%;
   object-fit: cover;
-}
-
-.bannerLogo {
-  border-radius: 20px 20px 0px 0px;
-  width: 90%;
 }
 
 @keyframes initial-border-shift {
