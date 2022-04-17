@@ -1,0 +1,5 @@
+<picture>
+    <source srcset='{{ strings.TrimSuffix ".png" . }}.avif' type='image/avif' />
+    <source srcset='{{ strings.TrimSuffix ".png" . }}.webp' type='image/webp' />
+    <img src='{{ . }}' alt='' />
+</picture>

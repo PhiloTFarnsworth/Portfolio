@@ -37,9 +37,9 @@
     </div>
     <div class="mediaCenter">
         <h3>Media</h3>
-        {{ range .Resources.Match "media/*" }}
-        <div>
-            <img src="{{ . }}" title="{{.Name}}" />
+        {{ range .Resources.Match "media/*.png" }}
+        <div tabindex="0">
+            {{ partial "image.html" .}}
         </div>
         {{ end }}
     </div>
