@@ -1,0 +1,42 @@
+#layer4, #layer6, #layer8, #layer10, #layer12 {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: skewer 10s ease-in-out 5s infinite normal;
+}
+
+#layer5, #layer7, #layer9, #layer11 {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: skewer-reverse 10s ease-in-out 5s infinite normal;
+}
+
+@keyframes skewer {
+  33% {
+    transform: skew(0deg) rotate(0deg);
+  }
+  44% {
+    transform: skew(15deg) rotate(15deg);
+  }
+  55% {
+    transform: skew(-15deg) rotate(-15deg);
+  }
+  66% {
+    transform: skew(0deg) rotate(0deg);
+  }
+}
+@keyframes skewer-reverse {
+  33% {
+    transform: skew(0deg) rotate(0deg);
+  }
+  44% {
+    transform: skew(-15deg) rotate(-15deg);
+  }
+  55% {
+    transform: skew(15deg) rotate(15deg);
+  }
+  66% {
+    transform: skew(0deg) rotate(0deg);
+  }
+}
+
+/*# sourceMappingURL=bitsprite.css.map */

@@ -1,0 +1,43 @@
+#apBackground {
+    animation: long-scroll 12s linear 5s infinite normal;
+    transform: translateX(110%);
+}
+
+@keyframes long-scroll {
+    to {
+        transform: translateX(-475%);
+    }
+}
+
+#meteor {
+    animation: meteor-orbit 12s ease-in-out 5s infinite normal;
+}
+
+@keyframes meteor-orbit {
+    30% {
+        transform: translateX(-92%);
+    }
+    70% {
+        transform: translateX(-92%);
+    }
+    100% {
+        transform: translate(-200%);
+    }
+}
+
+#meteorHalo {
+    animation: glow 3s ease-in-out 5s infinite normal forwards;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes glow {
+    50% {
+        opacity: 75%;
+        transform: scale(75%);
+    }
+    100% {
+        opacity: 100%;
+        transform: scale(100%);
+    }
+}
