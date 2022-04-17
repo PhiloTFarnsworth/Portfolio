@@ -1,0 +1,38 @@
+#FauxGlow {
+    animation: glow 20s linear 0s infinite normal;
+    opacity: 90%;
+}
+
+@keyframes glow {
+    15% {
+        opacity: 60%;
+    } 16% {
+        opacity: 75%;
+    } 20% {
+        opacity: 90%;
+    } 21% {
+        opacity: 40%;
+    } 35% {
+        opacity: 90%;
+    } 40% {
+        opacity: 65%
+    } 43% {
+        opacity: 50%;
+    } 50% {
+        opacity: 60%;
+    } 51% {
+        opacity: 80%;
+    } 55% {
+        opacity: 70%;
+    } 60% {
+        opacity: 90%;
+    } 75% {
+        opacity: 70%;
+    } 76% {
+        opacity: 85%;
+    } 77% {
+        opacity: 70%;
+    } 80% {
+        opacity: 90%;
+    }
+}

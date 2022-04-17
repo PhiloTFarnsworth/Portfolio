@@ -143,6 +143,14 @@ object {
     z-index: -1;
 }
 
+.bannerLogo {
+    border-radius: 20px 20px 0px 0px;
+    width: 90%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
 div {
     @include flexRow();
     justify-content: center;
@@ -195,24 +203,54 @@ a {
 
 .mediaCenter {
     @include flexCol();
+    padding: 0rem .5rem;
     flex-grow: 3;   
     div {
         width: 25vw;
         height: 10vh;
-        img {
-            height: 90%;
-            width: 90%;
-            object-fit: cover;
+        picture {
+            height: 100%;
+            width: 100%;
+            img {
+                height: 90%;
+                width: 90%;
+                object-fit: cover;
+            }
         }
     }
 }
 
-
-
-.bannerLogo {
-    border-radius: 20px 20px 0px 0px;
-    width: 90%;
+.mediaCenter:focus-within {
+    div:not(:focus) {
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+    div:focus {
+        width: 25vw;
+        height: 10vh;
+        animation: media-grow 1s linear 0s 1 normal forwards;
+        z-index:1;
+        opacity: 100%;
+    }
 }
+
+.mediaCenter:hover {
+    div:not(:hover) {
+        opacity: 90%;
+    }
+    div:hover, div:focus{
+        opacity: 100%;
+    }
+}
+
+@keyframes media-grow {
+    to {
+        height: 30vh;
+    }
+}
+
+
 
 @keyframes initial-border-shift {
     100% {
