@@ -21,5 +21,7 @@ title = "Michael Gardner - In His Own Words"
   github = "PhiloTFarnsworth"
   year = "2022"
   background = "desert.svg"
+  bio = "An aspiring developer in Tucson, AZ, I seek to leverage my skills to create unique and interesting digital experiences."
+  quote = "Give me a fulcrum and some documentation, and I will move the world"
   ## TODO: Font Decisions
   fonts = []
