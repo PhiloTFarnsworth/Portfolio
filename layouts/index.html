@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="EN">
+
+{{ partial "head" .}}
+
+<body>
+    <div class="gradientMask"></div>
+    {{/*  <script type="module" src='{{.Site.BaseURL}}scripts/home.js'></script>  */}}
+    <div class="content">
+    <header aria-atomic="true">
+        <h1>{{.Site.Params.Author}}</h1>
+        <h2>{{.Site.Params.Description}}</h2>
+    </header>
+    <main aria-atomic="true">
+        <div class="project" style="display: none;">
+            <div class="data">
+                <h3>URLs</h3>
+                <h3>Tools</h3>
+                <h3>Timeline</h3>
+            </div>
+            <div class="highlights">
+                <h3>Highlights</h3>
+                <ul></ul>
+            </div>
+            <div class="mediaCenter">
+                <h3>Media</h3>
+            </div>
+        </div>
+        {{/*  {{ $avatars := resources.Match "images/avatar.*"}}
+        {{ range $avatars }}
+            <img src="{{.Permalink}}"/>
+        {{ end }}  */}}
+
+        <div class="bio">
+            <div class="avatar">
+                {{$avatar := resources.Get "images/avatar.png"}}
+                <picture>
+                    <source srcset='{{strings.TrimSuffix ".png" $avatar.Permalink}}.avif' type='image/avif'/>
+                    <source srcset='{{strings.TrimSuffix ".png" $avatar.Permalink}}.webp' type='image/webp'/>
+                    <img src="{{$avatar.Permalink}}" title="Profile avatar image"/>
+                </picture>
+            </div>
+            <p>{{ .Site.Params.Bio }}</p>
+        </div>
+    </main>
+    </div>
+    <nav>
+        similar to Hugoin', but with nav arrows to left and right of main content.
+        <button>prev</button>
+        <button>next</button>
+        <p>Nav indicator</p>
+    </nav>
+    <footer>
+        better footer required.
+    </footer>
+</body>
+</html>
