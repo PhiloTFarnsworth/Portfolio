@@ -135,9 +135,31 @@ main {
     }
 }
 
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    left: 15vw;
+    bottom: 7vh;
+    width: 70vw;
+    a {
+        border-radius: 20px;
+        background-color: $SecondaryDark;
+        padding: .5rem;
+    }
+}
+
 footer {
     position: fixed;
     bottom: 0;
+}
+
+section {
+    padding: 1rem;
+    width: 100%;
+    .bannerLogo {
+        border-radius: 20px;
+    }
 }
 
 //16:9 ratio for testing.
@@ -162,8 +184,10 @@ object {
 
 div {
     @include flexRow();
-    justify-content: center;
-    align-content: center;
+}
+
+.spaced {
+    justify-content: space-evenly;
 }
 
 i {
@@ -265,6 +289,7 @@ a {
         border-bottom: 5px solid $PrimaryDark;
         background-color: $SecondaryDarkTransp;
         color: $PrimaryLight;
+        overflow-y: auto;
     }
 }
 

@@ -103,9 +103,31 @@ main div table {
   flex: 1;
 }
 
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  left: 15vw;
+  bottom: 7vh;
+  width: 70vw;
+}
+nav a {
+  border-radius: 20px;
+  background-color: #003333;
+  padding: 0.5rem;
+}
+
 footer {
   position: fixed;
   bottom: 0;
+}
+
+section {
+  padding: 1rem;
+  width: 100%;
+}
+section .bannerLogo {
+  border-radius: 20px;
 }
 
 object {
@@ -130,8 +152,10 @@ div {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  justify-content: center;
-  align-content: center;
+}
+
+.spaced {
+  justify-content: space-evenly;
 }
 
 i {
@@ -239,6 +263,7 @@ a {
     border-bottom: 5px solid #332000;
     background-color: rgba(0, 26, 26, 0.9);
     color: #ffd999;
+    overflow-y: auto;
   }
 }
 @keyframes content-expand {
