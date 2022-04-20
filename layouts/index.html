@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="EN">
+
+{{ partial "head" .}}
+
+<body>
+    <div class="gradientMask"></div>
+    {{ partial "background" .}}
+    <div class="content">
+        {{$first := index (where .Site.RegularPages "Section" "projects") 0}}
+        {{ partial "projectHead" $first }}
+        <main>
+            {{ partial "projectBody" $first}}
+        </main>
+    </div>
+    <nav>
+        <button id="prevPage">Prev</button>
+        {{ range (where .Site.RegularPages "Section" "projects") }}
+        <div title="{{ .Title }}">
+            <label for="rad{{ .Weight }}"> {{ .Title }}</label>
+            <input type="radio" aria-label="{{.Title}}" id="rad{{ .Weight }}" name="radioNav"
+                value="{{.Permalink}}index.json">
+        </div>
+        {{ end }}
+        <button id="nextPage">Next</button>
+    </nav>
+    {{ partial "sidebar" .}}
+</body>
+
+</html>

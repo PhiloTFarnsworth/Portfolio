@@ -1,73 +1,30 @@
 {{ define "header" }}
-<object class="bannerLogo" type="image/svg+xml" data='{{ index (.Resources.Match "logo/banner.*") 0}}' title="{{.Title}} Banner"></object>
-<header>
-    <h1>{{ .Title }}</h1>
-    <h2>{{ .Params.Buzz }}</h2>
-</header>
+{{ partial "projectHead" . }}
 {{ end }}
 
 {{ define "main" }}
-<div>
-    <div class="data">
-        <h3>URLs</h3>
-        {{ if eq .Params.ProjectURL .Params.RepoURL }}
-        <a href="{{ .Params.ProjectURL }}">Project Link</a>
-        {{ else }}
-        <a href="{{ .Params.ProjectURL }}" alt="{{ .Title }} Project">Project Link</a>
-        <a href="{{ .Params.RepoURL}}" alt="{{ .Title }} Repository">Repository</a>
-        {{ end }}
-        <h3>Tools</h3>
-        <div>
-            {{ range .Params.Tools }}
-            <i class="devicon-{{ . }}-plain colored" title="{{.}}"></i>
-            {{ end }}
-        </div>
-        <h3>Timeline</h3>
-        <p>{{ .Params.ProjectStart }}-{{ .Params.ProjectEnd }}</p>
-    </div>
-    <div class="highlights">
-        <h3>Highlights</h3>
-        <ul>
-            {{ range .Params.Highlights }}
-            <li>
-                {{ . }}
-            </li>
-            {{ end }}
-        </ul>
-    </div>
-    <div class="mediaCenter">
-        <h3>Media</h3>
-        {{ range .Resources.Match "media/*.png" }}
-        <div tabindex="0">
-            {{ partial "image.html" .}}
-        </div>
-        {{ end }}
-    </div>
-</div>
+{{ partial "projectBody" .}}
 {{ end }}
 
 {{ define "footer" }}
 {{ $this := .}}
-    <nav>
-        {{ if .Next }}
-            <a title="Previous Page - {{ .Next.Title }}" href="{{ .Next.Permalink }}">Prev</a>
+<nav>
+    {{ if .Next }}
+    <a title="Previous Page - {{ .Next.Title }}" href="{{ .Next.Permalink }}">Prev</a>
+    {{ end }}
+    {{ range (where .Site.RegularPages "Section" .Section) }}
+    <div>
+        {{ if eq $this.Title .Title }}
+        <label for="pageMarker">{{.Params.shortTitle}}</label>
+        <a href='{{.Permalink}}' id="pageMarker" title="{{.Title}}" disabled="true" aria-disabled="true"> ! </a>
+        {{ else }}
+        <a href='{{.Permalink}}' title="{{.Title}}">0</a>
         {{ end }}
-        {{ range (where .Site.RegularPages "Section" .Section) }}
-            <div>
-            {{ if eq $this.Title .Title }}
-                <label for="pageMarker">{{.Params.shortTitle}}</label>
-                <a href='{{.Permalink}}' id="pageMarker" title="{{.Title}}" disabled="true" aria-disabled="true"> ! </a>
-            {{ else }}
-                <a href='{{.Permalink}}' title="{{.Title}}">0</a>
-            {{ end }}
-            </div>
-        {{ end }}
-        {{ if .Prev }}
-        <a title="Next Page - {{ .Prev.Title }}" href="{{ .Prev.Permalink }}">Next</a>
-       {{ end }}
-    </nav>
-    <div class="sidebar" tabindex="0">
-        {{ partial "bio" .}}
-        {{ partial "legal" .}}
     </div>
+    {{ end }}
+    {{ if .Prev }}
+    <a title="Next Page - {{ .Prev.Title }}" href="{{ .Prev.Permalink }}">Next</a>
+    {{ end }}
+</nav>
+{{ partial "sidebar" .}}
 {{ end }}

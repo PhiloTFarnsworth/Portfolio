@@ -5,31 +5,29 @@
 {{ define "main" }}
 <section>
     {{ range .Pages}}
-    <object class="bannerLogo" type="image/svg+xml" data='{{ (index (.Resources.Match "logo/banner.*") 0).Permalink}}' title="{{.Title}} Banner"></object>
+    <object class="bannerLogo" type="image/svg+xml" data='{{ (index (.Resources.Match "logo/banner.*") 0).Permalink}}'
+        title="{{.Title}} Banner"></object>
     <div class="spaced">
-        <h2><a href="{{.Permalink}}">{{.Title}}</a></h2>    
+        <h2><a href="{{.Permalink}}">{{.Title}}</a></h2>
         <div class="col">
-        <h3>Tools</h3>
-        <div>
-        {{ range .Params.Tools }}
-        <i class="devicon-{{ . }}-plain colored" title="{{.}}"></i>
-        {{ end }}
-        </div>
+            <h3>Tools</h3>
+            <div>
+                {{ range .Params.Tools }}
+                <i class="devicon-{{ . }}-plain colored" title="{{.}}"></i>
+                {{ end }}
+            </div>
         </div>
     </div>
     {{ if eq .Params.ProjectURL .Params.RepoURL }}
-        <a href="{{ .Params.ProjectURL }}">Project Link</a>
-        {{ else }}
-        <a href="{{ .Params.ProjectURL }}" alt="{{ .Title }} Project">Project Link</a>
-        <a href="{{ .Params.RepoURL}}" alt="{{ .Title }} Repository">Repository</a>
-        {{ end }}
+    <a href="{{ .Params.ProjectURL }}">Project Link</a>
+    {{ else }}
+    <a href="{{ .Params.ProjectURL }}" alt="{{ .Title }} Project">Project Link</a>
+    <a href="{{ .Params.RepoURL}}" alt="{{ .Title }} Repository">Repository</a>
+    {{ end }}
     {{ end }}
 </section>
 {{ end }}
 
 {{ define "footer" }}
-<div class="sidebar" tabindex="0">
-    {{ partial "bio" .}}
-    {{ partial "legal" .}}
-</div>
+{{ partial "sidebar" .}}
 {{ end }}
