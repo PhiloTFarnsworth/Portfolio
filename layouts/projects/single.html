@@ -47,6 +47,25 @@
 {{ end }}
 
 {{ define "footer" }}
+{{ $this := .}}
+    <nav>
+        {{ if .Next }}
+            <a title="Previous Page - {{ .Next.Title }}" href="{{ .Next.Permalink }}">Prev</a>
+        {{ end }}
+        {{ range (where .Site.RegularPages "Section" .Section) }}
+            <div>
+            {{ if eq $this.Title .Title }}
+                <label for="pageMarker">{{.Params.shortTitle}}</label>
+                <a href='{{.Permalink}}' id="pageMarker" title="{{.Title}}" disabled="true" aria-disabled="true"> ! </a>
+            {{ else }}
+                <a href='{{.Permalink}}' title="{{.Title}}">0</a>
+            {{ end }}
+            </div>
+        {{ end }}
+        {{ if .Prev }}
+        <a title="Next Page - {{ .Prev.Title }}" href="{{ .Prev.Permalink }}">Next</a>
+       {{ end }}
+    </nav>
     <div class="sidebar" tabindex="0">
         {{ partial "bio" .}}
         {{ partial "legal" .}}
