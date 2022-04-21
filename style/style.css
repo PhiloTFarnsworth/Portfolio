@@ -84,7 +84,7 @@ p {
 
 main {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
@@ -105,7 +105,7 @@ main div table {
 
 nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   position: fixed;
   left: 15vw;
   bottom: 7vh;
@@ -115,6 +115,12 @@ nav a {
   border-radius: 20px;
   background-color: #003333;
   padding: 0.5rem;
+}
+nav div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {
