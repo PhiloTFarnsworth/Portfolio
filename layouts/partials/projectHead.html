@@ -1,4 +1,4 @@
-<object class="bannerLogo" type="image/svg+xml" data='{{ (index (.Resources.Match "logo/banner.*") 0).Permalink }}'
+<object loading="lazy" class="bannerLogo" type="image/svg+xml" data='{{ (index (.Resources.Match "logo/banner.*") 0).Permalink }}'
     title="{{.Title}} Banner"></object>
 <header>
     <h1>{{ .Title }}</h1>

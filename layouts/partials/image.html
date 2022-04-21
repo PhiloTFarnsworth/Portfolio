@@ -1,5 +1,5 @@
 <picture>
     <source srcset='{{ strings.TrimSuffix ".png" .Permalink }}.avif' type='image/avif' />
     <source srcset='{{ strings.TrimSuffix ".png" .Permalink }}.webp' type='image/webp' />
-    <img src='{{ .Permalink }}' alt='' />
+    <img src='{{ .Permalink }}' alt='' loading='lazy'/>
 </picture>
