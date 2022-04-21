@@ -1,6 +1,7 @@
 {{ $this := .}}
 {
     "title": "{{ .Title }}",
+    "weight": "{{.Weight}}",
     "buzz": "{{ .Params.Buzz }}",
     "highlights": {{ jsonify .Params.Highlights }},
     "tools": {{ jsonify .Params.Tools }},

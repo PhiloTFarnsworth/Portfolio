@@ -1,5 +1,6 @@
 ---
 title: "A Pretty Hugoin' Website"
+weight: 3
 buzz: "An Exploration of Webdesign"
 highlights: [
     "Explored web design topics such as Accessibility and Responsive Design",

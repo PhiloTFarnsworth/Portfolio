@@ -1,5 +1,6 @@
 ---
 title: "Angry Planet"
+weight: 4
 buzz: "A 2D Game built in unity"
 highlights: [
     "Familiarized myself with Unity's game development platform",

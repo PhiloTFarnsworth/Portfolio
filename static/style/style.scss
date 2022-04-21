@@ -118,7 +118,7 @@ p {
 }
 
 main {
-    @include flexCol();
+    @include flexRow();
     div {
         ul {
             @include Spacing1Rem();
@@ -137,7 +137,7 @@ main {
 
 nav {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     position: fixed;
     left: 15vw;
     bottom: 7vh;
@@ -146,6 +146,9 @@ nav {
         border-radius: 20px;
         background-color: $SecondaryDark;
         padding: .5rem;
+    }
+    div {
+        @include flexCol();
     }
 }
 
