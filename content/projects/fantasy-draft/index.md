@@ -1,5 +1,6 @@
 ---
 title: "Fantasy Draft Go"
+weight: 1
 buzz: "A Fantasy Draft Experience"
 highlights: [
     "Built a web server with Go using the Gin framework",
