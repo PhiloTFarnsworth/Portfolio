@@ -8,11 +8,14 @@ svg {
 }
 
 #viewportSVG {
-    opacity: .5;
-    animation: nightfall 2.5s ease-out 1s 1 normal forwards;
+    opacity: 0;
+    animation: nightfall 2s ease-out .5s 1 normal forwards;
 }
 
 @keyframes nightfall {
+    from {
+        opacity: 0;
+    }
     to {
         opacity: 1;
     }
@@ -21,28 +24,35 @@ svg {
 #skybox {
     transform-origin: center;
     transform-box: fill-box;
-    transform: rotate(90deg);
-    animation: skybox 2.5s ease-out 1s 1 normal forwards;
+    animation: skybox-night 2s ease-out .5s 1 normal forwards;
 }
 
-@keyframes skybox {
+@keyframes skybox-night {
+    0% {
+        transform: rotate(0deg);
+    }
     100% {
         transform: rotate(180deg);
     }
 }
-
-#stars {
-    opacity: 30%;
-    animation: star-rise 4s ease-in 1s 1 normal forwards, twinkle 3s ease-in-out 3.5s infinite;
-}
-
-@keyframes star-rise {
+@keyframes skybox-day {
+    0% {
+        transform: rotate(180deg);
+    }
     100% {
-        opacity: 100%;
+        transform: rotate(360deg);
     }
 }
 
+#stars {
+    opacity: 0%;
+    animation: nightfall 3s ease-in .5s 1 normal forwards, twinkle 3s ease-in-out 3.5s infinite;
+}
+
 @keyframes twinkle {
+    0% {
+        opacity: 100%;
+    }
     50% {
         opacity: 65%
     }
@@ -52,81 +62,95 @@ svg {
 }
 
 #mountain{
-    animation: mountain-slide 2.5s ease-out 1s 1 normal forwards;
+    animation: mountain-slide 2s ease-out .5s 1 normal forwards;
 }
 
 @keyframes mountain-slide {
-    to {
-        transform: translateX(-10%);
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-8%);
     }
 }
 
 #hills{
-    animation: hills-slide 2.5s ease-out 1s 1 normal forwards;
+    animation: hills-slide 2s ease-out .5s 1 normal forwards;
 }
 
 @keyframes hills-slide {
-    to {
-        transform: translateX(-30%);
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-32%);
     }
 }
 
 #desert{
-    animation: desert-slide 2.5s ease-out 1s 1 normal forwards;
+    animation: desert-slide-on-open 3s linear .5s 1 normal forwards;
 }
 
-@keyframes desert-slide {
-    to {
+@keyframes desert-slide-on-open {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
         transform: translateX(-155%);
     }
 }
+/* We want the 'oasis' area to be where we stop for the content card, which makes this a little
+tricky.  We want to run to the end of the image, then jump back to the beginning, do a full loop, 
+and then pause back at the 'oasis'.  After some research, we apparently want to a negative animation delay
+of ~-1.85s, which should start the animation at the 'oasis' */
+@keyframes desert-navigate-start {
+    0% {
+        transform: translateX(-155%);
+    }
+    100% {
+        transform: translateX(-260%);
+    }
+}
+@keyframes desert-loop {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-260%);
+    }
+}
+
 
 #skyBack{
-    animation: cloud-left 3s ease-out 1s 1 normal forwards, cloud-drift-left 12s ease-in-out 4s infinite normal forwards;
+    animation: cloud-left 120s linear 0s infinite normal forwards;
 }
 
 @keyframes cloud-left {
     to {
-        transform: translateX(-91%);
-    }
-}
-
-@keyframes cloud-drift-left {
-    50% {
-        transform: translateX(-93%);
-    }
-    100% {
-        transform: translateX(-91%);
+        transform: translateX(-200%);
     }
 }
 
 #skyFront{
-    animation: cloud-right 3s ease-out 1s 1 normal forwards, cloud-drift 8s ease-in-out 4s infinite;
+    animation: cloud-right 60s linear 0s infinite normal forwards;
 }
 
 @keyframes cloud-right {
     to {
-        transform: translateX(62%);
-    }
-}
-
-@keyframes cloud-drift {
-    50% {
-        transform: translateX(64%);
-
-    }
-    100% {
-        transform: translateX(62%);
+        transform: translateX(225%);
     }
 }
 
 #sun {
-    animation: celestial-set 4s ease-out 1s 1 normal forwards;
+    animation: celestial-set 3s ease-out .5s 1 normal forwards;
     transform-origin: 0px 120px;
     transform-box: fill-box;
-    transform: rotate(70deg);
+    transform: rotate(45deg);
 }
 @keyframes celestial-set {
+    0% {
+        transform: rotate(45deg);
+    }
     100% {
         transform: rotate(225deg);
     }
@@ -134,21 +158,17 @@ svg {
 
 
 #moon {
-    animation: celestial-rise 4s ease-out 1s 1 normal forwards;
+    animation: celestial-rise 3s ease-out .5s 1 normal forwards;
     transform-origin: 0px 120px;
     transform-box: fill-box;
     transform: rotate(225deg);
 }
 
 @keyframes celestial-rise {
+    0% {
+        transform: rotate(225deg);
+    }
     100% {
         transform: rotate(405deg);
     }
 }
-
-
-
-
-
-
-
