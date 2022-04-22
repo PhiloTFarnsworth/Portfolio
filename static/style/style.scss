@@ -40,6 +40,8 @@ $PrimaryDarkTransp: color.scale($Primary, $lightness: -90%, $alpha: -10%);
 $SecondaryDarkTransp: color.scale($Secondary, $lightness: -90%, $alpha: -10%);
 $PrimaryLight: color.scale($Primary, $lightness: 60%);
 $SecondaryLight: color.scale($Secondary, $lightness: 60%);
+$PrimaryLightTransp: color.scale($Primary, $lightness: 60%, $alpha: -10%);
+$SecondaryLightTransp: color.scale($Secondary, $lightness: 60%, $alpha: -10%);
 
 @mixin flexCol {
     display: flex;
@@ -65,12 +67,13 @@ html {
     letter-spacing: .05rem;
     word-spacing: .25rem;
     font-size: larger;
+    font-weight: bold;
     font-family: "OpenDyslexic";
 }
 
 .gradientMask {
     background-image: linear-gradient($SecondaryDark, $PrimaryDark);
-    opacity: .5;
+    opacity: 0;
     position: absolute;
     margin: 0;
     padding: 0;
@@ -81,7 +84,10 @@ html {
 }
 
 @keyframes background-gradient-to-night {
-    to {
+    0% {
+        opacity: 0%;
+    }
+    100% {
         opacity: 100%;
     }
 }
@@ -195,10 +201,11 @@ div {
 
 i {
     font-size: xx-large;
+    color: $Primary;
 }
 
 a {
-    color: $SecondaryLight;
+    color: red;
 }
 
 .content {
@@ -213,8 +220,8 @@ a {
     overflow-y: hidden;
 
     background-color: rgba(255, 230, 200, 0.85);
-    border-top: 5px solid rgb(64, 0, 196);
-    border-bottom: 5px solid rgb(197, 128, 0);
+    border-top: 5px solid $Secondary;
+    border-bottom: 5px solid $Primary;
     border-radius: 20px;
 
     color: rgb(16, 0, 64);
@@ -287,26 +294,36 @@ a {
 }
 
 @keyframes initial-border-shift {
+    0% {
+        background-color: rgba(255, 230, 200, 0.85);
+        border-top: 5px solid $Secondary;
+        border-bottom: 5px solid $Primary;
+        color: $PrimaryDark;
+    }
     100% {
         border-top: 5px solid $SecondaryDark;
         border-bottom: 5px solid $PrimaryDark;
         background-color: $SecondaryDarkTransp;
         color: $PrimaryLight;
-        overflow-y: auto;
     }
 }
 
 @keyframes content-expand {
+    0% {
+        height: 0%;
+    }
     100%{
-        height: 70vh;
-        top: 15vh;
+        height: 70%;
+        top: 15%;
+        overflow-y: auto;
     }
 }
 
 figure {
     margin: .5rem;
     padding: .5rem;
-    background-color: $PrimaryDark;
+    background-color: $PrimaryDarkTransp;
+    color: $PrimaryLight;
 }
 
 #DayMan {
@@ -344,6 +361,10 @@ figure {
         position: fixed;
         top: 1rem;
     }
+    a {
+        text-decoration: none;
+    }
+    // animation: sidebar-color 2.5s linear .5s 1 normal forwards;
 }
 
 .sidebar:hover, .sidebar:focus {
@@ -380,5 +401,15 @@ figure {
     100% {
         width: 100%;
         opacity: 100%;
+    }
+}
+
+@keyframes sidebar-color {
+    0% {
+        background-color: $SecondaryLightTransp;
+        color: $PrimaryDark;
+    } 100% {
+        background-color: $SecondaryDarkTransp;
+        color: $PrimaryLight;
     }
 }
