@@ -31,12 +31,13 @@ html {
   letter-spacing: 0.05rem;
   word-spacing: 0.25rem;
   font-size: larger;
+  font-weight: bold;
   font-family: "OpenDyslexic";
 }
 
 .gradientMask {
   background-image: linear-gradient(#003333, #332000);
-  opacity: 0.5;
+  opacity: 0;
   position: absolute;
   margin: 0;
   padding: 0;
@@ -47,7 +48,10 @@ html {
 }
 
 @keyframes background-gradient-to-night {
-  to {
+  0% {
+    opacity: 0%;
+  }
+  100% {
     opacity: 100%;
   }
 }
@@ -166,10 +170,11 @@ div {
 
 i {
   font-size: xx-large;
+  color: #FFA000;
 }
 
 a {
-  color: #99ffff;
+  color: red;
 }
 
 .content {
@@ -184,8 +189,8 @@ a {
   left: 15vw;
   overflow-y: hidden;
   background-color: rgba(255, 230, 200, 0.85);
-  border-top: 5px solid #4000c4;
-  border-bottom: 5px solid #c58000;
+  border-top: 5px solid #00FFFF;
+  border-bottom: 5px solid #FFA000;
   border-radius: 20px;
   color: #100040;
   animation: initial-border-shift 3.5s ease-out 1s 1 normal forwards, content-expand 1.5s ease-out 3s 1 normal forwards;
@@ -264,24 +269,34 @@ a {
   }
 }
 @keyframes initial-border-shift {
+  0% {
+    background-color: rgba(255, 230, 200, 0.85);
+    border-top: 5px solid #00FFFF;
+    border-bottom: 5px solid #FFA000;
+    color: #332000;
+  }
   100% {
     border-top: 5px solid #003333;
     border-bottom: 5px solid #332000;
     background-color: rgba(0, 26, 26, 0.9);
     color: #ffd999;
-    overflow-y: auto;
   }
 }
 @keyframes content-expand {
+  0% {
+    height: 0%;
+  }
   100% {
-    height: 70vh;
-    top: 15vh;
+    height: 70%;
+    top: 15%;
+    overflow-y: auto;
   }
 }
 figure {
   margin: 0.5rem;
   padding: 0.5rem;
-  background-color: #332000;
+  background-color: rgba(26, 16, 0, 0.9);
+  color: #ffd999;
 }
 
 #DayMan {
@@ -324,6 +339,9 @@ figure {
   position: fixed;
   top: 1rem;
 }
+.sidebar a {
+  text-decoration: none;
+}
 
 .sidebar:hover, .sidebar:focus {
   opacity: 100%;
@@ -358,6 +376,16 @@ figure {
   100% {
     width: 100%;
     opacity: 100%;
+  }
+}
+@keyframes sidebar-color {
+  0% {
+    background-color: rgba(153, 255, 255, 0.9);
+    color: #332000;
+  }
+  100% {
+    background-color: rgba(0, 26, 26, 0.9);
+    color: #ffd999;
   }
 }
 
