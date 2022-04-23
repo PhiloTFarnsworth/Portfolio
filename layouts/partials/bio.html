@@ -6,6 +6,9 @@
         {{ partial "image" (resources.Get "images/avatar.png")}}
         {{ partial "image" (resources.Get "images/avatarNight.png")}}
     </figure>
+    {{$avatars := resources.Match "images/avatar.*"}}
+    {{$Nightmen := resources.Match "images/avatarNight.*"}}
+    <p style="display: none">{{ range $avatars }} {{.Permalink}}{{end}}{{range $Nightmen}}{{.Permalink}}{{end}}</p>
 
     <p>{{ .Site.Params.Bio }}</p>
     <figure>

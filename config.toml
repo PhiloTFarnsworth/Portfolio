@@ -26,9 +26,3 @@ title = "Michael Gardner - In His Own Words"
   contactPatter = "Send comments, questions and solicitations to"
   ## TODO: Font Decisions
   fonts = []
-
-  
-
-[_build]
-  publishResources = true
-
