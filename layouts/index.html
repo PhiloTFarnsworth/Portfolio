@@ -7,13 +7,13 @@
     <script type="module" src='{{.Site.BaseURL}}scripts/home.js'></script>
     <div class="gradientMask"></div>
     {{ partial "background" .}}
-    <div class="content">
+    <section>
         {{$first := index (where .Site.RegularPages "Section" "projects") 0}}
         {{ partial "projectHead" $first }}
         <main>
             {{ partial "projectBody" $first}}
         </main>
-    </div>
+    </section>
     <nav>
         <button id="prevPage">Prev</button>
         {{ range (where .Site.RegularPages "Section" "projects") }}

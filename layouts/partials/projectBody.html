@@ -1,35 +1,44 @@
 <div class="data">
-    <h3>URLs</h3>
-    {{ if eq .Params.ProjectURL .Params.RepoURL }}
-    <a href="{{ .Params.ProjectURL }}">Project Link</a>
-    {{ else }}
-    <a href="{{ .Params.ProjectURL }}" alt="{{ .Title }} Project">Project Link</a>
-    <a href="{{ .Params.RepoURL}}" alt="{{ .Title }} Repository">Repository</a>
-    {{ end }}
-    <h3>Tools</h3>
     <div>
-        {{ range .Params.Tools }}
-        <i class="devicon-{{ . }}-plain colored" title="{{.}}"></i>
+        <h3>URLs</h3>
+        {{ if eq .Params.ProjectURL .Params.RepoURL }}
+        <a href="{{ .Params.ProjectURL }}">Project</a>
+        {{ else }}
+        <a href="{{ .Params.ProjectURL }}" alt="{{ .Title }} Project">Project</a>
+        <a href="{{ .Params.RepoURL}}" alt="{{ .Title }} Repository">Repo</a>
         {{ end }}
     </div>
-    <h3>Timeline</h3>
-    <p>{{ .Params.ProjectStart }}-{{ .Params.ProjectEnd }}</p>
+    <div>
+        <h3>Tools</h3>
+        <div>
+            {{ range .Params.Tools }}
+            <i class="devicon-{{ . }}-plain colored" title="{{.}}"></i>
+            {{ end }}
+        </div>
+    </div>
+    <div>
+        <h3>Timeline</h3>
+        <p>{{ .Params.ProjectStart }}-{{ .Params.ProjectEnd }}</p>
+    </div>
 </div>
-<div class="highlights">
-    <h3>Highlights</h3>
-    <ul>
-        {{ range .Params.Highlights }}
-        <li>
-            {{ . }}
-        </li>
-        {{ end }}
-    </ul>
-</div>
-<div class="mediaCenter">
+<div>
     <h3>Media</h3>
-    {{ range .Resources.Match "media/*.png" }}
-    <div tabindex="0">
-        {{ partial "image.html" .}}
+    <div class="mediaCenter">
+        
+        {{ range .Resources.Match "media/*.png" }}
+        <div tabindex="0">
+            {{ partial "image.html" .}}
+        </div>
+        {{ end }}
     </div>
-    {{ end }}
+    <div class="highlights">
+        <h3>Highlights</h3>
+        <ul>
+            {{ range .Params.Highlights }}
+            <li>
+                {{ . }}
+            </li>
+            {{ end }}
+        </ul>
+    </div>
 </div>

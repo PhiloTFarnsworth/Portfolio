@@ -47,14 +47,14 @@ $SecondaryLightTransp: color.scale($Secondary, $lightness: 60%, $alpha: -10%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
 }
 
 @mixin flexRow {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
 }
 
 @mixin Spacing1Rem {
@@ -63,10 +63,10 @@ $SecondaryLightTransp: color.scale($Secondary, $lightness: 60%, $alpha: -10%);
 }
 
 html {
+    display: flex;
     background-image: linear-gradient($Secondary, $Primary);
     letter-spacing: .05rem;
     word-spacing: .25rem;
-    font-size: larger;
     font-weight: bold;
     font-family: "OpenDyslexic";
 }
@@ -102,14 +102,6 @@ body {
     font-family: "OpenDyslexic";
 }
 
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
-    width: 90%;
-}
-
 h1,h2,h3,h4,h5,h6 {
     text-align: center;
     margin: 0;
@@ -121,24 +113,6 @@ h3 {
 
 p {
     margin: .5rem;
-}
-
-main {
-    @include flexRow();
-    div {
-        ul {
-            @include Spacing1Rem();
-            display: flex;
-            flex-direction: column;
-            flex: 3;
-        }
-        table {
-            @include Spacing1Rem();
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-    }
 }
 
 nav {
@@ -158,23 +132,10 @@ nav {
     }
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-}
-
-section {
-    padding: 1rem;
-    width: 100%;
-    .bannerLogo {
-        border-radius: 20px;
-    }
-}
-
 //16:9 ratio for testing.
-object {
-    width: 90vw;
-    height: auto;
+#backgroundSVG {
+    min-width: 90vw;
+    min-height: 100vh;
 
     position: fixed;
     top: 0;
@@ -191,14 +152,6 @@ object {
     left: 0;
 }
 
-div {
-    @include flexRow();
-}
-
-.spaced {
-    justify-content: space-evenly;
-}
-
 i {
     font-size: xx-large;
     color: $Primary;
@@ -208,12 +161,12 @@ a {
     color: red;
 }
 
-.content {
-    @include flexCol();
 
+section {
+    @include flexCol();
     width: 70vw;
     height: 0vh;
-
+    flex-wrap: nowrap;
     position: fixed;
     top: 50vh;
     left: 15vw;
@@ -229,27 +182,41 @@ a {
     animation: initial-border-shift 3.5s ease-out 1s 1 normal forwards, content-expand 1.5s ease-out 3s 1 normal forwards;
 }
 
-.col {
-    @include flexCol();
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    width: 98%;
+}
+
+main {
+    width: 98%;
 }
 
 .data {
-    @include flexCol();
-    @include Spacing1Rem();
-    flex-grow: 1;
+    @include flexRow();
+    justify-content: space-around;
+    flex-wrap: wrap;
+    div:nth-child(2) {
+        margin: 0;
+        padding: 0;
+    }
 }
 
 .highlights {
     @include flexCol();
-    flex-grow: 3;
+    flex-grow: 1;
 }
 
 .mediaCenter {
-    @include flexCol();
+    @include flexRow();
     padding: 0rem .5rem;
-    flex-grow: 3;   
+    flex-grow: 1;   
+    justify-content: center;
     div {
-        width: 25vw;
+        width: 33%;
         height: 10vh;
         picture {
             height: 100%;
@@ -289,7 +256,8 @@ a {
 
 @keyframes media-grow {
     to {
-        height: 30vh;
+        height: 50vh;
+        width: 66%;
     }
 }
 
@@ -319,77 +287,133 @@ a {
     }
 }
 
-figure {
-    margin: .5rem;
-    padding: .5rem;
-    background-color: $PrimaryDarkTransp;
-    color: $PrimaryLight;
-}
-
-#DayMan {
-    display: none;
-}
-
 .sidebar {
     @include flexCol();
-    padding: .5rem 1rem;
+    flex-wrap: nowrap;
+    margin: 0;
     position: absolute;
     top: 0;
     left: 0;
-    width: 5rem;
-    height: 100%;
-    opacity: 90%;
+    width: 5vw;
+    height: 100vh;
+    font-size: smaller;
     background-color: $SecondaryDarkTransp;
     color: $PrimaryLight;
+    #sidebarExpand {
+        display: flex;
+        font-size: xx-large;
+        margin: 0;
+        padding: 0;
+    }
     #sidebarCollapse {
         display: none;
     }
     div {
         @include flexCol();
-        padding: .1 2rem;
-        font-size: smaller;
         opacity: 0%;
-        display: none;
+        width: 0;
+        margin: 0;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+        p {
+            margin: 0;
+            padding: .25rem;
+        }
     }
-    picture {
-        img {
-            max-width: 300px;
-            object-fit: cover;
+    figure {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        width: 100%;
+        picture {
+            grid-column: 1;
+            grid-row: 1;
+            img {
+                max-width: 90%;
+                object-fit: cover;
+            }
         }
     }
     h2 {
-        position: fixed;
-        top: 1rem;
+        -webkit-text-orientation: upright;
+        text-orientation: upright;
+        writing-mode: vertical-lr;
+        margin: 0;
+        padding: 0;
+        word-spacing: 0;
+        letter-spacing: 0;
+        white-space: nowrap;
+        font-size: small;
     }
     a {
         text-decoration: none;
     }
-    // animation: sidebar-color 2.5s linear .5s 1 normal forwards;
+
 }
 
-.sidebar:hover, .sidebar:focus {
-    opacity: 100%;
+footer {
+    font-size: x-small;
+    padding: 0;
+    margin: 0;
+    word-break: break-all;
 }
 
-.sidebar:focus {
+figure {
+    padding: 0;
+    margin: 0;
+    background-color: $PrimaryDarkTransp;
+    color: $PrimaryLight;
+}
+
+blockquote {
+    margin: 0;
+    padding: .25rem;
+}
+
+.sidebar:focus, .sidebar:focus-within {
     animation: sidebar-grow 1s linear 0s 1 normal forwards;
     #sidebarExpand {
         display: none;
     }
     #sidebarCollapse {
         display: flex;
-        font-size: small;
+        font-size: x-small;
     }
     div {
-        width: 0;
-        display: flex;
         animation: bio-grow 1s linear 0s 1 normal forwards;
+    }
+    h2 {
+        writing-mode: inherit;
+        text-orientation: inherit;
+    }
+    #avatarNight {
+        animation: nightman-cometh 10s linear 5s infinite alternate forwards;
+        z-index: 1;
+        opacity: 0;
     }
 }
 
+@keyframes nightman-cometh {
+    0% {
+        opacity: 0;
+    }
+    33% {
+        opacity: 1;
+    }
+    66% {
+        opacity: 1;
+    } 
+    100% {
+        opacity: 0;
+    } 
+}
+
 @keyframes sidebar-grow {
+    0% {
+        width: 0;
+    }
     to {
-        width: 25rem;
+        width: 25vw;
     }
 }
 
@@ -411,5 +435,19 @@ figure {
     } 100% {
         background-color: $SecondaryDarkTransp;
         color: $PrimaryLight;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sidebar {
+        width: 12vw;
+    }
+    @keyframes sidebar-grow {
+        0% {
+            width: 0;
+        }
+        to {
+            width: 65vw;
+        }
     }
 }

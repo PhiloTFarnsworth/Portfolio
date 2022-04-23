@@ -35,7 +35,7 @@ const populateProject = (data) => {
                 // Set href
                 const projectLink = element.nextElementSibling
                 projectLink.setAttribute('href', data.projectURL)
-                if (projectLink.nextElementSibling.tagName === 'A') {
+                if (projectLink.nextElementSibling ?? false) {
                     if (data.projectURL === data.repoURL) {
                         projectLink.nextElementSibling.remove()
                     } else {
@@ -47,7 +47,7 @@ const populateProject = (data) => {
                     } else {
                         const repoLink = document.createElement('a')
                         repoLink.setAttribute('href', data.repoURL)
-                        repoLink.innerHTML = 'Repository Link'
+                        repoLink.innerHTML = 'Repo'
                         projectLink.insertAdjacentElement('afterend', repoLink)
                     }
                 }
@@ -69,7 +69,7 @@ const populateProject = (data) => {
                 data.images.filter(image => image.endsWith('.webp')),
                 data.images.filter(image => image.endsWith('.png'))]
                 // div -> h3, div -> picture -> source, source, img x 3
-                const mediaCenter = Array.from(element.parentElement.children).filter(el => el.tagName === 'DIV')
+                const mediaCenter = Array.from(element.nextElementSibling.children).filter(el => el.tagName === 'DIV')
                 mediaCenter.forEach((div, index) => {
                     Array.from(div.firstElementChild.children).forEach((subElement, subindex) => {
                         if (subElement.tagName === 'IMG') {
@@ -185,7 +185,7 @@ const navigationAnimation = () => {
 }
 // diurnalTransition will assign animations based on state (day/night)
 const diurnalTransition = async (state, duration) => {
-    const contentCard = document.querySelector('.content')
+    const contentCard = document.querySelector('section')
     const sidebar = document.querySelector('.sidebar')
     const gradientMask = document.querySelector('.gradientMask')
     const mainStyle = document.styleSheets[0]
