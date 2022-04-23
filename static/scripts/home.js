@@ -1,4 +1,4 @@
-import { displayPage, navRadioInitiator, navButtonHandler } from "./nav.js"
+import { displayPage, navRadioInitiator} from "./nav.js"
 
 document.addEventListener('DOMContentLoaded', () => {
     const originatingURLParams = new URLSearchParams(window.location.search)
@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         const navlink = document.querySelector('#rad1')
         navlink.checked = true
-        navButtonHandler(navlink)
     }
     navRadioInitiator()
 })

@@ -15,15 +15,12 @@
         </main>
     </section>
     <nav>
-        <button id="prevPage">Prev</button>
         {{ range (where .Site.RegularPages "Section" "projects") }}
         <div title="{{ .Title }}">
-            <label for="rad{{ .Weight }}"> {{ .Title }}</label>
             <input type="radio" aria-label="{{.Title}}" id="rad{{ .Weight }}" name="radioNav"
                 value="{{.Permalink}}index.json">
         </div>
         {{ end }}
-        <button id="nextPage">Next</button>
     </nav>
     {{ partial "sidebar" .}}
 </body>

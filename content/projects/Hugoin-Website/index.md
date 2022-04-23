@@ -7,7 +7,7 @@ highlights: [
     "Utilized a static site generator to decouple content and coding tasks",
     "Built an SPA with matching static site experience"
 ]
-tools: ["html5", "css3", "javascript", "hugo", "vscode"]
+tools: ["html5", "css3", "javascript", "hugo", "vscode", "gimp"]
 projectURL: "https://philotfarnsworth.github.io/APrettyHuGOinWebsite/"
 repoURL: "https://github.com/PhiloTFarnsworth/APrettyHuGOinWebsite"
 projectStart: "Mar 2022"
