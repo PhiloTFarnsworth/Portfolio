@@ -17,8 +17,7 @@ export const displayPage = async (navElement) => {
     const baseURL = window.location.toString().replace(window.location.search, '')
     history.pushState({}, '', baseURL + '?page=' + data.weight)
     navElement.checked = true
-    toggleLabels(navElement.parentElement)
-    navButtonHandler(navElement)
+    // navButtonHandler(navElement)
 }
 
 // Pass data from request to populate Project, then use that data to populate project fields.
@@ -35,7 +34,7 @@ const populateProject = (data) => {
                 // Set href
                 const projectLink = element.nextElementSibling
                 projectLink.setAttribute('href', data.projectURL)
-                if (projectLink.nextElementSibling.tagName === 'A') {
+                if (projectLink.nextElementSibling ?? false) {
                     if (data.projectURL === data.repoURL) {
                         projectLink.nextElementSibling.remove()
                     } else {
@@ -47,7 +46,7 @@ const populateProject = (data) => {
                     } else {
                         const repoLink = document.createElement('a')
                         repoLink.setAttribute('href', data.repoURL)
-                        repoLink.innerHTML = 'Repository Link'
+                        repoLink.innerHTML = 'Repo'
                         projectLink.insertAdjacentElement('afterend', repoLink)
                     }
                 }
@@ -69,7 +68,7 @@ const populateProject = (data) => {
                 data.images.filter(image => image.endsWith('.webp')),
                 data.images.filter(image => image.endsWith('.png'))]
                 // div -> h3, div -> picture -> source, source, img x 3
-                const mediaCenter = Array.from(element.parentElement.children).filter(el => el.tagName === 'DIV')
+                const mediaCenter = Array.from(element.nextElementSibling.children).filter(el => el.tagName === 'DIV')
                 mediaCenter.forEach((div, index) => {
                     Array.from(div.firstElementChild.children).forEach((subElement, subindex) => {
                         if (subElement.tagName === 'IMG') {
@@ -83,77 +82,6 @@ const populateProject = (data) => {
                 break;
             default:
                 break;
-        }
-    })
-}
-
-// toggleLabels take a navElement which has been selected and makes its label visible, while also hiding all unselected
-// navigational elements labels.  We take a nav element, then use iterate over the parent element, if the element returned is
-// a navigational element with label, change visibility of label as appropriate.
-const toggleLabels = (navElement) => {
-    const navBubbles = Array.from(navElement.parentElement.children).filter((element) => element.tagName === "DIV")
-    navBubbles.forEach((child) => {
-        if (child === navElement) {
-            //make label visible.  Since we're always going to place labels first, we can use firstChild.
-            const label = Array.from(child.children).find((element) => element.tagName === 'LABEL')
-            label.hidden = false
-        } else {
-            //make label invisible.  
-            const label = Array.from(child.children).find((element) => element.tagName === 'LABEL')
-            label.hidden = true
-        }
-    })
-}
-
-// navClickHandler will take the entire nav element, then iterate over all children to set or update their 
-// onclick functionality
-export const navButtonHandler = async (activeNavElement) => {
-
-    //First we need to identify just where we are.  'prev' and 'next' are the divs adjacent to active element.  From this,
-    //we can populate the next and previous buttons.
-    const prev = activeNavElement.parentElement.previousElementSibling
-    const next = activeNavElement.parentElement.nextElementSibling
-    // Active nav is the radio button, so its grandparent is our total nav
-    const nav = activeNavElement.parentElement.parentElement
-
-    Array.from(nav.children).forEach((child) => {
-        // First, Find Buttons
-        if (child.tagName === 'BUTTON') {
-            // Then Find the right button
-            if (child.id === 'prevPage') {
-                //Finally validate position in navigation.  In this case, if our previous element is a button, it means we're 
-                //on the first page of a collection 
-                if (prev.tagName === 'BUTTON') {
-                    //On the static site, first page doesn't display button, so hide.
-                    child.setAttribute('style', 'display:none;')
-                } else {
-                    child.innerHTML = 'Prev'
-                    child.setAttribute('title', 'Previous Page - ' + prev.getAttribute("title"))
-                    // Do button stuff
-                    child.onclick = () => {
-                        displayPage(prev.lastElementChild)
-                        navigationAnimation()
-                    }
-                    if (child.getAttribute('style') === 'display:none;') {
-                        child.setAttribute('style', '')
-                    }
-                }
-            } else {
-                if (next.tagName === 'BUTTON') {
-                    child.setAttribute('style', 'display:none;')
-                } else {
-                    child.innerHTML = "Next"
-                    child.setAttribute('title', 'Next Page - ' + next.getAttribute('title'))
-                    // Do button stuff
-                    child.onclick = () => {
-                        displayPage(next.lastElementChild)
-                        navigationAnimation()
-                    }
-                    if (child.getAttribute('style') === 'display:none;') {
-                        child.setAttribute('style', '')
-                    }
-                }
-            }
         }
     })
 }
@@ -185,7 +113,7 @@ const navigationAnimation = () => {
 }
 // diurnalTransition will assign animations based on state (day/night)
 const diurnalTransition = async (state, duration) => {
-    const contentCard = document.querySelector('.content')
+    const contentCard = document.querySelector('section')
     const sidebar = document.querySelector('.sidebar')
     const gradientMask = document.querySelector('.gradientMask')
     const mainStyle = document.styleSheets[0]
