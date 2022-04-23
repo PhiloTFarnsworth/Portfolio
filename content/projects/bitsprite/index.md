@@ -12,5 +12,5 @@ projectURL: "https://github.com/PhiloTFarnsworth/BitSprite"
 repoURL: "https://github.com/PhiloTFarnsworth/BitSprite"
 projectStart: "Apr 2021"
 projectEnd: "Ongoing"
-draft: true 
+draft: false
 ---
