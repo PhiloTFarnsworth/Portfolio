@@ -17,11 +17,12 @@ title = "Michael Gardner - In His Own Words"
   keywords = "Portfolio, Career, Web Development, HTML5, CSS3, Javascript, Go, Golang, Hugo, Developer, Software, Hire Me"
   author = "Michael Gardner"
   email = "Idodevthings@gmail.com"
-  linkedIn = "www.linkedin.com/in/michael-gardner-az"
+  linkedIn = "https://www.linkedin.com/in/michael-gardner-az"
   github = "PhiloTFarnsworth"
   year = "2022"
   background = "desert.svg"
   bio = "An aspiring developer in Tucson, AZ, I seek to leverage my skills to create unique and interesting digital experiences."
   quote = "Give me a fulcrum and some documentation, and I will move the world"
+  contactPatter = "Send comments, questions and solicitations to"
   ## TODO: Font Decisions
   fonts = []

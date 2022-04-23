@@ -6,14 +6,14 @@
 <body>
     <div class="gradientMask"></div>
     {{ partial "background" .}}
-    <div class="content">
+    <section>
         {{ block "header" .}}
         {{ end }}
         <main>
             {{ block "main" .}}
             {{ end }}
         </main>
-    </div>
+    </section>
         {{ block "footer" . }}
         {{ end }}
 </body>

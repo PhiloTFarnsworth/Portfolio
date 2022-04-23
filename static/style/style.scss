@@ -32,41 +32,41 @@
     font-display: swap;
 }
 
-$Primary: #FFA000;
-$Secondary: #00FFFF; 
+$Primary: #ffa000;
+$Secondary: #00ffff;
 $PrimaryDark: color.scale($Primary, $lightness: -80%);
 $SecondaryDark: color.scale($Secondary, $lightness: -80%);
-$PrimaryDarkTransp: color.scale($Primary, $lightness: -90%, $alpha: -10%);
-$SecondaryDarkTransp: color.scale($Secondary, $lightness: -90%, $alpha: -10%);
+$PrimaryDarkTransp: color.scale($Primary, $lightness: -90%, $alpha: -20%);
+$SecondaryDarkTransp: color.scale($Secondary, $lightness: -90%, $alpha: -20%);
 $PrimaryLight: color.scale($Primary, $lightness: 60%);
 $SecondaryLight: color.scale($Secondary, $lightness: 60%);
-$PrimaryLightTransp: color.scale($Primary, $lightness: 60%, $alpha: -10%);
-$SecondaryLightTransp: color.scale($Secondary, $lightness: 60%, $alpha: -10%);
+$PrimaryLightTransp: color.scale($Primary, $lightness: 60%, $alpha: -20%);
+$SecondaryLightTransp: color.scale($Secondary, $lightness: 60%, $alpha: -20%);
 
 @mixin flexCol {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
 }
 
 @mixin flexRow {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
 }
 
 @mixin Spacing1Rem {
-    margin: .5rem;
-    padding: .5rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
 }
 
 html {
+    display: flex;
     background-image: linear-gradient($Secondary, $Primary);
-    letter-spacing: .05rem;
-    word-spacing: .25rem;
-    font-size: larger;
+    letter-spacing: 0.05rem;
+    word-spacing: 0.25rem;
     font-weight: bold;
     font-family: "OpenDyslexic";
 }
@@ -102,15 +102,12 @@ body {
     font-family: "OpenDyslexic";
 }
 
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
-    width: 90%;
-}
-
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     text-align: center;
     margin: 0;
 }
@@ -120,25 +117,7 @@ h3 {
 }
 
 p {
-    margin: .5rem;
-}
-
-main {
-    @include flexRow();
-    div {
-        ul {
-            @include Spacing1Rem();
-            display: flex;
-            flex-direction: column;
-            flex: 3;
-        }
-        table {
-            @include Spacing1Rem();
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-    }
+    margin: 0.5rem;
 }
 
 nav {
@@ -146,35 +125,73 @@ nav {
     justify-content: space-around;
     position: fixed;
     left: 15vw;
-    bottom: 7vh;
+    bottom: 2.5vh;
     width: 70vw;
+
     a {
+        margin: 0.5rem 0.15rem;
+        padding: 0.25rem 0.5rem;
+        height: 1.5rem;
+        min-height: 1rem;
+        border: 2px solid $PrimaryLightTransp;
         border-radius: 20px;
-        background-color: $SecondaryDark;
-        padding: .5rem;
+        background-color: $SecondaryDarkTransp;
+        text-decoration: none;
+
+        font-weight: 900;
+        font-size: 2rem;
+        outline: none;
+        text-align: center;
+
+        display: block;
+        line-height: 75%;
     }
+
     div {
         @include flexCol();
     }
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
+// Radio navigation buttons
+input[type="radio"],
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
 }
 
-section {
-    padding: 1rem;
-    width: 100%;
-    .bannerLogo {
-        border-radius: 20px;
+input[type="radio"],
+input[type="checkbox"] {
+    align-self: center;
+
+    border: 2px solid $PrimaryLightTransp;
+    border-radius: 20px;
+    background-color: $SecondaryDarkTransp;
+}
+
+input[type="radio"]::before,
+input[type="checkbox"]::before {
+    visibility: hidden;
+    display: block;
+    content: "🌵";
+    font-size: xx-large;
+}
+
+input[type="radio"]:checked::before,
+input[type="checkbox"]:checked::before {
+    visibility: visible;
+}
+
+ul {
+    list-style: none;
+    li::before {
+        content: "🌵";
     }
 }
 
 //16:9 ratio for testing.
-object {
-    width: 90vw;
-    height: auto;
+#backgroundSVG {
+    min-width: 90vw;
+    min-height: 100vh;
 
     position: fixed;
     top: 0;
@@ -191,14 +208,6 @@ object {
     left: 0;
 }
 
-div {
-    @include flexRow();
-}
-
-.spaced {
-    justify-content: space-evenly;
-}
-
 i {
     font-size: xx-large;
     color: $Primary;
@@ -208,12 +217,11 @@ a {
     color: red;
 }
 
-.content {
+section {
     @include flexCol();
-
     width: 70vw;
     height: 0vh;
-
+    flex-wrap: nowrap;
     position: fixed;
     top: 50vh;
     left: 15vw;
@@ -226,31 +234,57 @@ a {
 
     color: rgb(16, 0, 64);
 
-    animation: initial-border-shift 3.5s ease-out 1s 1 normal forwards, content-expand 1.5s ease-out 3s 1 normal forwards;
+    animation: initial-border-shift 3.5s ease-out 1s 1 normal forwards,
+        content-expand 1.5s ease-out 3s 1 normal forwards;
+}
+section::-webkit-scrollbar {
+    width: 10px; /* width of the entire scrollbar */
+}
+section::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: $PrimaryDarkTransp;
+}
+section::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: $Secondary;
 }
 
-.col {
-    @include flexCol();
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    width: 98%;
+}
+
+main {
+    width: 98%;
 }
 
 .data {
-    @include flexCol();
-    @include Spacing1Rem();
-    flex-grow: 1;
+    @include flexRow();
+    justify-content: space-around;
+    flex-wrap: wrap;
+    div:nth-child(2) {
+        margin: 0;
+        padding: 0;
+    }
 }
 
 .highlights {
     @include flexCol();
-    flex-grow: 3;
+    flex-grow: 1;
 }
 
 .mediaCenter {
-    @include flexCol();
-    padding: 0rem .5rem;
-    flex-grow: 3;   
+    @include flexRow();
+    padding: 0rem 0.5rem;
+    flex-grow: 1;
+    justify-content: center;
     div {
-        width: 25vw;
-        height: 10vh;
+        width: 33%;
+        height: 20vh;
         picture {
             height: 100%;
             width: 100%;
@@ -273,7 +307,7 @@ a {
         width: 25vw;
         height: 10vh;
         animation: media-grow 1s linear 0s 1 normal forwards;
-        z-index:1;
+        z-index: 1;
         opacity: 100%;
     }
 }
@@ -282,14 +316,16 @@ a {
     div:not(:hover) {
         opacity: 90%;
     }
-    div:hover, div:focus{
+    div:hover,
+    div:focus {
         opacity: 100%;
     }
 }
 
 @keyframes media-grow {
     to {
-        height: 30vh;
+        height: 50vh;
+        width: 66%;
     }
 }
 
@@ -312,84 +348,163 @@ a {
     0% {
         height: 0%;
     }
-    100%{
+    100% {
         height: 70%;
         top: 15%;
         overflow-y: auto;
     }
 }
 
-figure {
-    margin: .5rem;
-    padding: .5rem;
-    background-color: $PrimaryDarkTransp;
-    color: $PrimaryLight;
-}
-
-#DayMan {
-    display: none;
-}
-
 .sidebar {
     @include flexCol();
-    padding: .5rem 1rem;
+    flex-wrap: nowrap;
+    margin: 0;
     position: absolute;
     top: 0;
     left: 0;
-    width: 5rem;
-    height: 100%;
-    opacity: 90%;
+    width: 5vw;
+    height: 100vh;
+    font-size: smaller;
     background-color: $SecondaryDarkTransp;
     color: $PrimaryLight;
+    #sidebarExpand {
+        display: flex;
+        font-size: xx-large;
+        margin: 0;
+        padding: 0;
+    }
     #sidebarCollapse {
         display: none;
     }
     div {
         @include flexCol();
-        padding: .1 2rem;
-        font-size: smaller;
         opacity: 0%;
-        display: none;
+        width: 0;
+        margin: 0;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        flex-wrap: nowrap;
+        p {
+            margin: 0;
+            padding: 0.25rem;
+        }
     }
-    picture {
-        img {
-            max-width: 300px;
-            object-fit: cover;
+    div::-webkit-scrollbar {
+        width: 10px; /* width of the entire scrollbar */
+    }
+    div::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: $PrimaryDarkTransp;
+    }
+    div::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: $Secondary;
+    }
+    figure {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        width: 100%;
+        picture {
+            grid-column: 1;
+            grid-row: 1;
+            img {
+                max-width: 90%;
+                object-fit: cover;
+            }
         }
     }
     h2 {
-        position: fixed;
-        top: 1rem;
+        -webkit-text-orientation: upright;
+        text-orientation: upright;
+        writing-mode: vertical-lr;
+        margin: 0;
+        padding: 0;
+        word-spacing: 0;
+        letter-spacing: 0;
+        white-space: nowrap;
+        font-size: small;
     }
     a {
         text-decoration: none;
+        font-size: larger;
+        word-break: break-all;
     }
-    // animation: sidebar-color 2.5s linear .5s 1 normal forwards;
 }
 
-.sidebar:hover, .sidebar:focus {
-    opacity: 100%;
+footer {
+    display: flex;
+    font-size: x-small;
+    padding: 0;
+    margin: 0;
+    word-break: break-all;
+    flex-grow: 1;
+    align-items: flex-end;
 }
 
-.sidebar:focus {
+figure {
+    padding: 0;
+    margin: 0;
+    background-color: $PrimaryDarkTransp;
+    color: $SecondaryLight;
+}
+
+blockquote {
+    margin: 0;
+    padding: 0.25rem;
+}
+
+.sidebar:focus,
+.sidebar:focus-within {
     animation: sidebar-grow 1s linear 0s 1 normal forwards;
     #sidebarExpand {
         display: none;
     }
     #sidebarCollapse {
         display: flex;
-        font-size: small;
+        font-size: x-small;
     }
     div {
-        width: 0;
-        display: flex;
         animation: bio-grow 1s linear 0s 1 normal forwards;
+    }
+    h2 {
+        writing-mode: inherit;
+        text-orientation: inherit;
+    }
+    #avatarNight {
+        animation: nightman-cometh 30s linear 5s infinite alternate forwards;
+        z-index: 1;
+        opacity: 0;
+    }
+}
+
+@keyframes nightman-cometh {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    44% {
+        opacity: 1;
+    }
+    56% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
 @keyframes sidebar-grow {
+    0% {
+        width: 5vw;
+    }
     to {
-        width: 25rem;
+        width: 25vw;
     }
 }
 
@@ -408,8 +523,34 @@ figure {
     0% {
         background-color: $SecondaryLightTransp;
         color: $PrimaryDark;
-    } 100% {
+    }
+    100% {
         background-color: $SecondaryDarkTransp;
         color: $PrimaryLight;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sidebar {
+        width: 12vw;
+    }
+    @keyframes sidebar-grow {
+        0% {
+            width: 12vw;
+        }
+        to {
+            width: 65vw;
+        }
+    }
+    input[type="radio"]::before,
+    input[type="checkbox"]::before {
+        font-size: x-large;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    input[type="radio"]::before,
+    input[type="checkbox"]::before {
+        font-size: large;
     }
 }

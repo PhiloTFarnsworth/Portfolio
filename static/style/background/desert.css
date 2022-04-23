@@ -3,8 +3,7 @@ Initial Animation should be ~2.5s long.  We'll start at sunset (since it looks g
 We'll move across the desert to the desired content point, and get some swaying motion on the clouds.
 */
 svg {
-    width: 1600px;
-    height: 900px;
+    height: 100%;
 }
 
 #viewportSVG {
@@ -96,7 +95,7 @@ svg {
         transform: translateX(0%);
     }
     100% {
-        transform: translateX(-155%);
+        transform: translateX(-150%);
     }
 }
 /* We want the 'oasis' area to be where we stop for the content card, which makes this a little
@@ -105,7 +104,7 @@ and then pause back at the 'oasis'.  After some research, we apparently want to 
 of ~-1.85s, which should start the animation at the 'oasis' */
 @keyframes desert-navigate-start {
     0% {
-        transform: translateX(-155%);
+        transform: translateX(-150%);
     }
     100% {
         transform: translateX(-260%);
