@@ -1,3 +1,4 @@
+{{ $this := .}}
 <div class="data">
     <div>
         <h3>URLs</h3>
@@ -11,8 +12,8 @@
     <div>
         <h3>Tools</h3>
         <div>
-            {{ range .Params.Tools }}
-            <i class="devicon-{{ . }}-plain colored" title="{{.}}"></i>
+            {{ range $index, $tool := .Params.Tools }}
+            <a href='{{index ($this.Params.ToolURLs) $index}}' title="{{ $tool }}"><i class="devicon-{{ $tool }}-plain colored"></i></a>
             {{ end }}
         </div>
     </div>

@@ -8,6 +8,7 @@ highlights: [
     "Inspired an early version of the BitSprite Program"
 ]
 tools: ["csharp", "unity", "vscode"]
+toolURLs: ["https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/", "https://unity.com/", "https://code.visualstudio.com/"]
 projectURL: "https://github.com/PhiloTFarnsworth/AngryPlanet"
 repoURL: "https://github.com/PhiloTFarnsworth/AngryPlanet"
 projectStart: "Dec 2020"

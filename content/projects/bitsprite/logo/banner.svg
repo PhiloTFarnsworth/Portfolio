@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-<?xml-stylesheet type="text/css" href="https://philotfarnsworth.github.io/Portfolio/style/logo/bitsprite.css" ?>
-<svg
+
+<?xml-stylesheet type="text/css" href="https://philotfarnsworth.github.io/Portfolio/style/logo/bitsprite.css" ?><svg
    width="468"
    height="60"
    viewBox="0 0 123.825 15.875"
@@ -32,7 +32,7 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="bitBackground" />
+     inkscape:current-layer="bitText" />
   <defs
      id="defs2">
     <rect
@@ -76,38 +76,138 @@
        transform="scale(0.26458333)"
        id="text194070"
        style="fill:black;fill-opacity:1;line-height:1.25;stroke:none;font-family:'Pokemon GB';font-style:normal;font-weight:normal;font-size:40px;white-space:pre;shape-inside:url(#rect194072);-inkscape-font-specification:'Pokemon GB';font-stretch:normal;font-variant:normal" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;line-height:1.25;font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="112.46204"
-       y="5.1266723"
-       id="text200018"><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';text-align:center;text-anchor:middle;fill:#ffe6d5;stroke-width:0.264583"
-         x="112.46204"
-         y="5.1266723"
-         id="tspan207218">Bit</tspan><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';text-align:center;text-anchor:middle;fill:#ffe6d5;stroke-width:0.264583"
-         x="112.46204"
-         y="9.536397"
-         id="tspan224358">Sprite</tspan></text>
+    <g
+       aria-label="Bit
+Sprite"
+       id="text200018"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';stroke-width:0.264583">
+      <path
+         d="m 107.15626,2.0328092 h 2.22603 v 0.4409725 h 0.44097 v 1.3229175 h 0.44098 v 0.9031117 h -0.44098 v 0.4409725 h -2.667 z m 0.46214,2.645835 h 2.1837 V 3.8178659 h -2.1837 z m 0,-1.3229175 h 1.74273 V 2.4949483 h -1.74273 z"
+         style="text-align:center;text-anchor:middle;fill:#ffe6d5"
+         id="path889" />
+      <path
+         d="m 112.00696,3.3557267 h 0.46214 v 1.7850567 h -0.46214 z m 0,-0.881945 h 0.46214 v 0.4621392 h -0.46214 z"
+         style="text-align:center;text-anchor:middle;fill:#ffe6d5"
+         id="path891" />
+      <path
+         d="m 114.6528,2.9147542 h 0.88194 V 2.4737817 h 0.46214 v 0.4409725 h 0.88194 v 0.4621392 h -0.88194 v 1.3017508 h 0.88194 v 0.4621392 h -0.90311 V 4.6998109 h -0.44097 V 3.3768934 h -0.88194 z"
+         style="text-align:center;text-anchor:middle;fill:#ffe6d5"
+         id="path893" />
+      <path
+         d="m 101.86459,6.8835067 h 0.44097 V 6.4425342 h 1.78506 v 0.4409725 h 0.44097 v 0.4621392 h -0.46213 V 6.9046734 h -1.74273 v 0.8607783 h 2.20486 v 0.4409726 h 0.44098 V 9.109536 h -0.44098 v 0.4409725 h -2.22603 V 9.109536 h -0.44097 V 8.6473968 h 0.46214 v 0.4409725 h 2.1837 V 8.2275909 h -2.20487 V 7.7866184 h -0.44097 z"
+         style="text-align:center;text-anchor:middle;fill:#ffe6d5"
+         id="path895" />
+      <path
+         d="m 105.83335,7.3244792 h 2.22602 v 0.4409725 h 0.44098 v 0.9031117 h -0.44098 V 9.109536 h -1.76389 v 0.881945 h -0.46213 z m 0.46213,1.3229176 h 1.74273 V 7.7866184 h -1.74273 z"
+         style="text-align:center;text-anchor:middle;fill:#ffe6d5"
+         id="path897" />
+      <path
+         d="m 109.36113,7.3244792 h 0.46213 v 0.8819451 h 0.41981 V 7.7654517 h 0.44097 V 7.3244792 h 1.34409 v 0.4621392 h -1.32292 v 0.4409725 h -0.44097 v 0.4409725 h -0.44098 v 0.8819451 h -0.46213 z"
+         style="text-align:center;text-anchor:middle;fill:#ffe6d5"
+         id="path899" />
+      <path
+         d="m 113.77085,7.7654517 h 0.46214 v 1.7850568 h -0.46214 z m 0,-0.881945 h 0.46214 v 0.4621392 h -0.46214 z"
+         style="text-align:center;text-anchor:middle;fill:#ffe6d5"
+         id="path901" />
+      <path
+         d="m 116.41669,7.3244792 h 0.88194 V 6.8835067 h 0.46214 v 0.4409725 h 0.88194 v 0.4621392 h -0.88194 v 1.3017509 h 0.88194 V 9.5505085 H 117.7396 V 9.109536 h -0.44097 V 7.7866184 h -0.88194 z"
+         style="text-align:center;text-anchor:middle;fill:#ffe6d5"
+         id="path903" />
+      <path
+         d="m 119.94447,7.7654517 h 0.44097 V 7.3244792 h 1.78505 v 0.4409725 h 0.44098 v 0.9031117 h -2.20487 v 0.4198059 h 2.20487 v 0.4621392 h -2.22603 V 9.109536 h -0.44097 z m 0.46213,0.4409726 h 1.74273 V 7.7866184 h -1.74273 z"
+         style="text-align:center;text-anchor:middle;fill:#ffe6d5"
+         id="path905" />
+    </g>
     <text
        xml:space="preserve"
        transform="scale(0.26458333)"
        id="text236102"
        style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect236104)" />
-    <text
-       xml:space="preserve"
-       style="font-size:3.62758px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.272069"
-       x="60.993961"
-       y="14.38792"
-       id="text240444"><tspan
-         sodipodi:role="line"
-         id="tspan240442"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5;stroke-width:0.272069"
-         x="60.993961"
-         y="14.38792">8-bit Sprite Generator</tspan></text>
+    <g
+       aria-label="8-bit Sprite Generator"
+       id="text240444"
+       style="font-size:3.62758px;line-height:1.25;text-align:center;text-anchor:middle;stroke-width:0.272069">
+      <path
+         d="m 21.076072,12.113428 h 0.453447 V 11.65998 h 2.289003 v 0.453448 h 0.453448 v 0.475213 h -0.453448 v 0.431682 h 0.453448 v 0.92866 h -0.453448 v 0.453448 h -2.289003 v -0.453448 h -0.453447 v -0.92866 h 0.453447 v -0.431682 h -0.453447 z m 0.92866,1.81379 h 1.338577 v -0.88513 h -1.338577 z m 0,-1.360343 h 1.338577 v -0.431682 h -1.338577 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path908" />
+      <path
+         d="m 25.157099,13.020323 h 2.742451 v 0.475213 h -2.742451 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path910" />
+      <path
+         d="m 28.784679,11.206533 h 0.475213 v 1.360342 h 1.81379 v 0.453448 h 0.453448 v 0.92866 h -0.453448 v 0.453448 h -2.289003 z m 2.267238,1.835555 h -1.792025 v 0.88513 h 1.792025 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path912" />
+      <path
+         d="m 33.319154,12.566875 h 0.475213 v 1.835556 h -0.475213 z m 0,-0.906895 h 0.475213 v 0.475213 h -0.475213 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path914" />
+      <path
+         d="m 36.039839,12.113428 h 0.906895 V 11.65998 h 0.475213 v 0.453448 h 0.906895 v 0.475213 h -0.906895 v 1.338577 h 0.906895 v 0.475213 h -0.928661 v -0.453448 h -0.453447 v -1.360342 h -0.906895 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path916" />
+      <path
+         d="m 42.841552,11.65998 h 0.453447 v -0.453447 h 1.835556 v 0.453447 h 0.453447 v 0.475213 h -0.475213 v -0.453447 h -1.792024 v 0.885129 h 2.267237 v 0.453448 h 0.453448 v 0.92866 h -0.453448 v 0.453448 H 43.294999 V 13.948983 H 42.841552 V 13.47377 h 0.475213 v 0.453448 h 2.245472 v -0.88513 h -2.267238 v -0.453447 h -0.453447 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path918" />
+      <path
+         d="m 46.922578,12.113428 h 2.289003 v 0.453447 h 0.453448 v 0.928661 h -0.453448 v 0.453447 h -1.81379 v 0.906895 h -0.475213 z m 0.475213,1.360342 h 1.792025 v -0.885129 h -1.792025 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path920" />
+      <path
+         d="m 50.550159,12.113428 h 0.475213 v 0.906895 h 0.431682 v -0.453448 h 0.453447 v -0.453447 h 1.382108 v 0.475213 h -1.360342 v 0.453447 h -0.453448 v 0.453448 h -0.453447 v 0.906895 h -0.475213 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path922" />
+      <path
+         d="m 55.084634,12.566875 h 0.475213 v 1.835556 h -0.475213 z m 0,-0.906895 h 0.475213 v 0.475213 h -0.475213 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path924" />
+      <path
+         d="m 57.805318,12.113428 h 0.906895 V 11.65998 h 0.475213 v 0.453448 h 0.906895 v 0.475213 h -0.906895 v 1.338577 h 0.906895 v 0.475213 h -0.92866 v -0.453448 h -0.453448 v -1.360342 h -0.906895 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path926" />
+      <path
+         d="m 61.432897,12.566875 h 0.453447 V 12.113428 H 63.7219 v 0.453447 h 0.453447 v 0.928661 H 61.90811 v 0.431682 h 2.267237 v 0.475213 h -2.289003 v -0.453448 h -0.453447 z m 0.475213,0.453448 h 1.792024 V 12.588641 H 61.90811 Z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path928" />
+      <path
+         d="m 70.955296,11.681746 h -1.792025 v 0.453447 h -0.453447 v 1.338577 h 0.453447 v 0.453448 h 1.792025 v -0.88513 h -1.360343 v -0.475213 h 1.835556 v 1.382108 h -0.453448 v 0.453448 h -1.835555 v -0.453448 h -0.453448 v -0.453447 h -0.453447 v -1.382108 h 0.453447 V 11.65998 h 0.453448 v -0.453447 h 1.835555 v 0.453447 h 0.453448 v 0.475213 h -0.475213 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path930" />
+      <path
+         d="m 72.315637,12.566875 h 0.453447 v -0.453447 h 1.835556 v 0.453447 h 0.453447 v 0.928661 H 72.79085 v 0.431682 h 2.267237 v 0.475213 h -2.289003 v -0.453448 h -0.453447 z m 0.475213,0.453448 h 1.792024 V 12.588641 H 72.79085 Z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path932" />
+      <path
+         d="m 76.396667,12.113428 h 1.835555 v 0.453447 h 0.453448 v 1.835556 h -0.475213 v -1.81379 H 76.87188 v 1.81379 h -0.475213 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path934" />
+      <path
+         d="m 79.570798,12.566875 h 0.453448 v -0.453447 h 1.835555 v 0.453447 h 0.453448 v 0.928661 h -2.267238 v 0.431682 h 2.267238 v 0.475213 h -2.289003 v -0.453448 h -0.453448 z m 0.475213,0.453448 h 1.792025 v -0.431682 h -1.792025 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path936" />
+      <path
+         d="m 83.198377,12.113428 h 0.475213 v 0.906895 h 0.431682 v -0.453448 h 0.453447 v -0.453447 h 1.382108 v 0.475213 h -1.360342 v 0.453447 h -0.453448 v 0.453448 H 83.67359 v 0.906895 h -0.475213 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path938" />
+      <path
+         d="m 87.279407,12.113428 h 1.382108 v 0.453447 h 0.453447 v 1.360343 h 0.453448 v 0.475213 H 87.279407 V 13.948983 H 86.825959 V 13.47377 h 0.453448 v -0.453447 h 1.360342 v -0.431682 h -1.360342 z m 0.02176,1.81379 h 1.338577 v -0.431682 h -1.338577 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path940" />
+      <path
+         d="m 90.453538,12.113428 h 0.906895 V 11.65998 h 0.475213 v 0.453448 h 0.906895 v 0.475213 h -0.906895 v 1.338577 h 0.906895 v 0.475213 h -0.92866 v -0.453448 h -0.453448 v -1.360342 h -0.906895 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path942" />
+      <path
+         d="m 94.081117,12.566875 h 0.453447 v -0.453447 h 1.835556 v 0.453447 h 0.453447 v 1.382108 H 96.37012 v 0.453448 h -1.835556 v -0.453448 h -0.453447 z m 0.475213,1.360343 h 1.792024 V 12.588641 H 94.55633 Z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path944" />
+      <path
+         d="m 97.708696,12.113428 h 0.475213 v 0.906895 h 0.431682 v -0.453448 h 0.453447 v -0.453447 h 1.382112 v 0.475213 h -1.360346 v 0.453447 h -0.453448 v 0.453448 h -0.453447 v 0.906895 h -0.475213 z"
+         style="font-family:'Pokemon GB';-inkscape-font-specification:'Pokemon GB';fill:#ffe6d5"
+         id="path946" />
+    </g>
     <text
        xml:space="preserve"
        transform="scale(0.26458333)"
