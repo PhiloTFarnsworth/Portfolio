@@ -53,8 +53,8 @@ const populateProject = (data) => {
                 break;
             case "Tools":
                 element.nextElementSibling.innerHTML =
-                    data.tools.map(tool =>
-                        '<i class="devicon-' + tool + '-plain colored" title="' + tool + '"></i>').join("")
+                    data.tools.map((tool, index) =>
+                        '<a href="' + data.toolURLs[index] + '" title="' + tool+ '"><i class="devicon-' + tool + '-plain colored"></i></a>').join("")
                 break;
             case "Timeline":
                 element.nextElementSibling.innerHTML = data.projectStart + "-" + data.projectEnd

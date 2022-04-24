@@ -12,7 +12,6 @@
     {{ range (where .Site.RegularPages "Section" .Section) }}
     <div>
         {{ if eq $this.Title .Title }}
-        <label for="pageMarker">{{.Params.shortTitle}}</label>
         <a href='{{.Permalink}}' id="pageMarker" title="{{.Title}}" disabled="true" aria-disabled="true">🌵</a>
         {{ else }}
         <a href='{{.Permalink}}' title="{{.Title}}"></a>

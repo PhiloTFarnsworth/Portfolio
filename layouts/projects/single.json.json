@@ -5,6 +5,7 @@
     "buzz": "{{ .Params.Buzz }}",
     "highlights": {{ jsonify .Params.Highlights }},
     "tools": {{ jsonify .Params.Tools }},
+    "toolURLs": {{ jsonify .Params.ToolURLs }},
     "projectURL": "{{ .Params.ProjectURL }}",
     "repoURL": "{{ .Params.RepoURL }}",
     "projectStart": "{{ .Params.ProjectStart }}",

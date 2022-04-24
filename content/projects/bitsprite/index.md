@@ -8,6 +8,7 @@ highlights: [
     "Built a series of tests to ensure that new updates do not break previous functionality"
 ]
 tools: ["go","vscode"]
+toolURLs: ["go.dev", "https://code.visualstudio.com/"]
 projectURL: "https://github.com/PhiloTFarnsworth/BitSprite"
 repoURL: "https://github.com/PhiloTFarnsworth/BitSprite"
 projectStart: "Apr 2021"
