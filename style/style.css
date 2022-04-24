@@ -124,9 +124,21 @@ input[type=checkbox] {
 input[type=radio],
 input[type=checkbox] {
   align-self: center;
-  border: 2px solid rgba(255, 217, 153, 0.8);
+  min-height: 1rem;
+  min-width: 1rem;
+  border: 4px solid rgba(255, 217, 153, 0.8);
   border-radius: 20px;
   background-color: rgba(0, 26, 26, 0.8);
+  box-shadow: 0.25em 0.25em rgba(153, 255, 255, 0.8);
+}
+
+input[type=radio]:hover,
+input[type=checkbox] {
+  align-self: center;
+  border: 4px solid #ffa000;
+  border-radius: 20px;
+  background-color: rgba(0, 26, 26, 0.8);
+  box-shadow: 0.5em 0.5em #00ffff;
 }
 
 input[type=radio]::before,
@@ -234,6 +246,15 @@ main {
 .data div:nth-child(2) {
   margin: 0;
   padding: 0;
+}
+.data div:nth-child(2) a {
+  text-decoration: none;
+}
+.data div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .highlights {
@@ -446,33 +467,7 @@ blockquote {
   writing-mode: inherit;
   text-orientation: inherit;
 }
-.sidebar:focus #avatarNight,
-.sidebar:focus-within #avatarNight {
-  animation: nightman-cometh 30s linear 5s infinite alternate forwards;
-  z-index: 1;
-  opacity: 0;
-}
 
-@keyframes nightman-cometh {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0;
-  }
-  44% {
-    opacity: 1;
-  }
-  56% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 @keyframes sidebar-grow {
   0% {
     width: 5vw;
