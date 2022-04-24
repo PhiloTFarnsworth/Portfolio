@@ -1,5 +1,5 @@
 /* 
-Initial Animation should be ~2.5s long.  We'll start at sunset (since it looks good) and push to night. 
+Initial Animation should be ~2s long.  We'll start at sunset (since it looks good) and push to night. 
 We'll move across the desert to the desired content point, and get some swaying motion on the clouds.
 */
 svg {
@@ -8,7 +8,7 @@ svg {
 
 #viewportSVG {
     opacity: 0;
-    animation: nightfall 2s ease-out .5s 1 normal forwards;
+    animation: nightfall 1.5s ease-out .5s 1 normal forwards;
 }
 
 @keyframes nightfall {
@@ -23,7 +23,7 @@ svg {
 #skybox {
     transform-origin: center;
     transform-box: fill-box;
-    animation: skybox-night 2s ease-out .5s 1 normal forwards;
+    animation: skybox-night 1.5s ease-out .5s 1 normal forwards;
 }
 
 @keyframes skybox-night {
@@ -45,7 +45,7 @@ svg {
 
 #stars {
     opacity: 0%;
-    animation: nightfall 3s ease-in .5s 1 normal forwards, twinkle 3s ease-in-out 3.5s infinite;
+    animation: nightfall 2s ease-in .5s 1 normal forwards, twinkle 3s ease-in-out 3s infinite;
 }
 
 @keyframes twinkle {
@@ -61,7 +61,7 @@ svg {
 }
 
 #mountain{
-    animation: mountain-slide 2s ease-out .5s 1 normal forwards;
+    animation: mountain-slide 1.5s ease-out .5s 1 normal forwards;
 }
 
 @keyframes mountain-slide {
@@ -74,7 +74,7 @@ svg {
 }
 
 #hills{
-    animation: hills-slide 2s ease-out .5s 1 normal forwards;
+    animation: hills-slide 1.5s ease-out .5s 1 normal forwards;
 }
 
 @keyframes hills-slide {
@@ -87,7 +87,7 @@ svg {
 }
 
 #desert{
-    animation: desert-slide-on-open 3s linear .5s 1 normal forwards;
+    animation: desert-slide-on-open 1.75s ease-out .5s 1 normal forwards;
 }
 
 @keyframes desert-slide-on-open {
@@ -141,7 +141,7 @@ of ~-1.85s, which should start the animation at the 'oasis' */
 }
 
 #sun {
-    animation: celestial-set 3s ease-out .5s 1 normal forwards;
+    animation: celestial-set 2s ease-out .5s 1 normal forwards;
     transform-origin: 0px 120px;
     transform-box: fill-box;
     transform: rotate(45deg);
@@ -157,7 +157,7 @@ of ~-1.85s, which should start the animation at the 'oasis' */
 
 
 #moon {
-    animation: celestial-rise 3s ease-out .5s 1 normal forwards;
+    animation: celestial-rise 2s ease-out .5s 1 normal forwards;
     transform-origin: 0px 120px;
     transform-box: fill-box;
     transform: rotate(225deg);
