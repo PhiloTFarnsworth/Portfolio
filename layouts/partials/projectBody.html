@@ -13,7 +13,13 @@
         <h3>Tools</h3>
         <div>
             {{ range $index, $tool := .Params.Tools }}
-            <a href='{{index ($this.Params.ToolURLs) $index}}' title="{{ $tool }}"><i class="devicon-{{ $tool }}-plain colored"></i></a>
+            {{ if eq $tool "unity"}}
+            <a href='{{index ($this.Params.ToolURLs) $index}}' title="{{ $tool }}"><i
+                    class="devicon-{{ $tool }}-original colored"></i></a>
+            {{ else }}
+            <a href='{{index ($this.Params.ToolURLs) $index}}' title="{{ $tool }}"><i
+                    class="devicon-{{ $tool }}-plain colored"></i></a>
+            {{ end }}
             {{ end }}
         </div>
     </div>
@@ -22,24 +28,22 @@
         <p>{{ .Params.ProjectStart }}-{{ .Params.ProjectEnd }}</p>
     </div>
 </div>
-<div>
-    <h3>Media</h3>
-    <div class="mediaCenter">
-        
-        {{ range .Resources.Match "media/*.png" }}
-        <div tabindex="0">
-            {{ partial "image.html" .}}
-        </div>
+<h3>Media</h3>
+<div class="mediaCenter">
+
+    {{ range .Resources.Match "media/*.png" }}
+    <div tabindex="0">
+        {{ partial "image.html" .}}
+    </div>
+    {{ end }}
+</div>
+<div class="highlights">
+    <h3>Highlights</h3>
+    <ul>
+        {{ range .Params.Highlights }}
+        <li>
+            {{ . }}
+        </li>
         {{ end }}
-    </div>
-    <div class="highlights">
-        <h3>Highlights</h3>
-        <ul>
-            {{ range .Params.Highlights }}
-            <li>
-                {{ . }}
-            </li>
-            {{ end }}
-        </ul>
-    </div>
+    </ul>
 </div>
