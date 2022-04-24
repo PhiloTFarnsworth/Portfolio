@@ -20,7 +20,11 @@
 		<link rel="preload" as="font" href="{{ $URL }}style/fonts/{{ . }}" crossorigin>
 	{{ end }}
 	<!--Font STUFF END-->
+	{{ if (and (eq .Page.Section "projects")  (eq (mod (int .Weight) 2) 0)) }}
+	<link rel="stylesheet" href="{{ $URL }}style/styleDay.css">
+	{{ else }}
 	<link rel="stylesheet" href="{{ $URL }}style/style.css">
+	{{ end }}
 	<!-- Devicon https://devicon.dev/ -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 	<title>{{.Site.Title}}</title>

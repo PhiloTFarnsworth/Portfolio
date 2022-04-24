@@ -1,0 +1,174 @@
+/* 
+Initial Animation should be ~2s long.  We'll start at sunset (since it looks good) and push to night. 
+We'll move across the desert to the desired content point, and get some swaying motion on the clouds.
+*/
+svg {
+    height: 100%;
+}
+
+#viewportSVG {
+    opacity: 1;
+    animation: nightfall 1.5s ease-out .5s 1 reverse forwards;
+}
+
+@keyframes nightfall {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#skybox {
+    transform-origin: center;
+    transform-box: fill-box;
+    transform: rotate(180deg);
+    animation: skybox-day 1.5s ease-out .5s 1 normal forwards;
+}
+
+@keyframes skybox-night {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+@keyframes skybox-day {
+    0% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#stars {
+    opacity: 100%;
+    animation: nightfall 2s ease-in .5s 1 reverse forwards;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 100%;
+    }
+    50% {
+        opacity: 65%
+    }
+    100% {
+        opacity: 100%
+    }
+}
+
+#mountain{
+    animation: mountain-slide 1.5s ease-out .5s 1 normal forwards;
+}
+
+@keyframes mountain-slide {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-8%);
+    }
+}
+
+#hills{
+    animation: hills-slide 1.5s ease-out .5s 1 normal forwards;
+}
+
+@keyframes hills-slide {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-32%);
+    }
+}
+
+#desert{
+    animation: desert-slide-on-open 1.75s ease-out .5s 1 normal forwards;
+}
+
+@keyframes desert-slide-on-open {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-150%);
+    }
+}
+/* We want the 'oasis' area to be where we stop for the content card, which makes this a little
+tricky.  We want to run to the end of the image, then jump back to the beginning, do a full loop, 
+and then pause back at the 'oasis'.  After some research, we apparently want to a negative animation delay
+of ~-1.85s, which should start the animation at the 'oasis' */
+@keyframes desert-navigate-start {
+    0% {
+        transform: translateX(-150%);
+    }
+    100% {
+        transform: translateX(-260%);
+    }
+}
+@keyframes desert-loop {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-260%);
+    }
+}
+
+
+#skyBack{
+    animation: cloud-left 120s linear 0s infinite normal forwards;
+}
+
+@keyframes cloud-left {
+    to {
+        transform: translateX(-200%);
+    }
+}
+
+#skyFront{
+    animation: cloud-right 60s linear 0s infinite normal forwards;
+}
+
+@keyframes cloud-right {
+    to {
+        transform: translateX(225%);
+    }
+}
+
+#sun {
+    animation: celestial-rise 2s ease-out .5s 1 normal forwards;
+    transform-origin: 0px 120px;
+    transform-box: fill-box;
+    transform: rotate(225deg);
+}
+@keyframes celestial-set {
+    0% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(225deg);
+    }
+}
+
+
+#moon {
+    animation: celestial-set 2s ease-out .5s 1 normal forwards;
+    transform-origin: 0px 120px;
+    transform-box: fill-box;
+    transform: rotate(45deg);
+}
+
+@keyframes celestial-rise {
+    0% {
+        transform: rotate(225deg);
+    }
+    100% {
+        transform: rotate(405deg);
+    }
+}

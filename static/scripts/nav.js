@@ -95,26 +95,30 @@ export const navRadioInitiator = () => {
     const navBubbles = Array.from(document.querySelector('nav').children).filter((element) => element.tagName === 'DIV')
     navBubbles.forEach((bubble) => {
         bubble.onclick = async () => {
+            const background = document.querySelector('#backgroundSVG').contentDocument
+            const viewport = background.querySelector('#viewportSVG')
+            await transitionStart()
             displayPage(bubble.lastElementChild)
-            navigationAnimation()
+            if (window.getComputedStyle(viewport).getPropertyValue('opacity') == '0') {
+                //Day to night
+                diurnalTransition('day', 2500)
+            } else {
+                //Night to day
+                diurnalTransition('night', 2500)
+            }
         }
     })
 }
-
-//We'll call this on click.  My conception is that we'll check for nighttime or daytime, then animate accordingly.
-//embedded xml stylesheets appear to be inaccessible from the document.stylesheets call, so we'll have to implement those rules
-//here. 
-const navigationAnimation = () => {
-    const background = document.querySelector('#backgroundSVG').contentDocument
-    const viewport = background.querySelector('#viewportSVG')
-    if (window.getComputedStyle(viewport).getPropertyValue('opacity') == '0') {
-        //Day to night
-        diurnalTransition('day', 2500)
-    } else {
-        //Night to day
-        diurnalTransition('night', 2500)
-    }
+//Fold up contentCard, then start the rest of the animation
+const transitionStart = async () => {
+    const contentCard = document.querySelector('section')
+    const mainStyle = document.styleSheets[0]
+    const anim = contentCard.animate(findKeyframesRule('content-expand', mainStyle), {
+        duration: 350, direction: 'reverse', iterations: 1, fill: 'forwards'
+    })
+    await anim.finished
 }
+
 // diurnalTransition will assign animations based on state (day/night)
 const diurnalTransition = async (state, duration) => {
     const contentCard = document.querySelector('section')
@@ -188,14 +192,14 @@ const diurnalTransition = async (state, duration) => {
     // rotations
     if (state === 'night') {
         sun.animate(findKeyframesRule('celestial-rise', style),
-            { duration: duration, direction: 'normal', fill: 'forwards' })
+            { duration: duration + 500, direction: 'normal', fill: 'forwards' })
         moon.animate(findKeyframesRule('celestial-set', style),
-            { duration: duration, direction: 'normal', fill: 'forwards' })
+            { duration: duration + 500, direction: 'normal', fill: 'forwards' })
     } else {
         sun.animate(findKeyframesRule('celestial-set', style),
-            { duration: duration, direction: 'normal', fill: 'forwards' })
+            { duration: duration + 500, direction: 'normal', fill: 'forwards' })
         moon.animate(findKeyframesRule('celestial-rise', style),
-            { duration: duration, direction: 'normal', fill: 'forwards' })
+            { duration: duration + 500, direction: 'normal', fill: 'forwards' })
     }
     // Desert compound animation
     // Desert loop is a special case because it's a little bit of a funky loop.  We start at the mid point
@@ -206,9 +210,6 @@ const diurnalTransition = async (state, duration) => {
         if (navigationIterations < 6) {
             const desertStart = desert.animate(findKeyframesRule('desert-navigate-start', style),
                 { duration: duration * 2 / 10, direction: 'normal', iterations: 1 })
-            contentCard.animate(findKeyframesRule('content-expand', mainStyle), {
-                duration: duration * 2 / 10, direction: 'reverse', iterations: 1, fill: 'forwards'
-            })
             await desertStart.finished
             const desertLoop = desert.animate(findKeyframesRule('desert-loop', style), {
                 duration: duration * 1 / 2, direction: 'normal', iterations: 1
@@ -228,12 +229,12 @@ const diurnalTransition = async (state, duration) => {
             const desertEnd = desert.animate(findKeyframesRule('desert-slide-on-open', style), {
                 duration: duration * (3 / 20), direction: 'reverse', iterations: 1
             })
-            contentCard.animate(findKeyframesRule('content-expand', mainStyle), {
-                duration: duration * 2 / 10, direction: 'reverse', iterations: 1, fill: 'forwards'
-            })
             await desertEnd.finished
             const desertLoop = desert.animate(findKeyframesRule('desert-loop', style), {
                 duration: duration * (3 / 24), direction: 'reverse', iterations: 6
+            })
+            contentCard.animate(findKeyframesRule('initial-border-shift', mainStyle), {
+                duration: duration * 1 / 2, direction: state === 'day' ? 'normal' : 'reverse', fill: 'forwards'
             })
             await desertLoop.finished
             const desertStart = desert.animate(findKeyframesRule('desert-navigate-start', style),

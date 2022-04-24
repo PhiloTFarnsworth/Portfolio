@@ -46,10 +46,6 @@ i {
   color: #ffa000;
 }
 
-i:hover {
-  text-shadow: 0.05rem 0.05rem rgba(153, 255, 255, 0.8);
-}
-
 a {
   color: red;
 }
@@ -75,7 +71,7 @@ html body .gradientMask {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  animation: background-gradient-to-night 5s ease-out 1s 1 normal forwards;
+  animation: background-gradient-to-night 5s ease-out 1s 1 reverse forwards;
   z-index: -2;
 }
 html body #backgroundSVG {
@@ -99,12 +95,12 @@ html body section {
   top: 50vh;
   left: 15vw;
   overflow-y: hidden;
-  background-color: rgba(255, 230, 200, 0.85);
-  border-top: 5px solid #00ffff;
-  border-bottom: 5px solid #ffa000;
-  border-radius: 20px;
+  border-top: 5px solid #003333;
+  border-bottom: 5px solid #332000;
+  background-color: rgba(0, 26, 26, 0.8);
+  color: #ffd999;
   color: #100040;
-  animation: initial-border-shift 2.5s ease-out 1s 1 normal forwards, content-expand 1.5s ease-out 2s 1 normal forwards;
+  animation: initial-border-shift 2.5s ease-out 1s 1 reverse forwards, content-expand 1.5s ease-out 2s 1 normal forwards;
 }
 html body section .bannerLogo {
   border-radius: 10px 10px 0px 0px;
@@ -299,8 +295,8 @@ html body .sidebar {
   left: 0;
   width: 5vw;
   height: 100vh;
-  background-color: rgba(0, 26, 26, 0.8);
-  color: #ffd999;
+  background-color: rgba(153, 255, 255, 0.8);
+  color: #332000;
 }
 html body .sidebar #sidebarExpand {
   display: flex;
@@ -341,8 +337,8 @@ html body .sidebar div figure {
   width: 100%;
   padding: 0;
   margin: 0;
-  background-color: rgba(26, 16, 0, 0.8);
-  color: #99ffff;
+  background-color: #00ffff;
+  color: #332000;
 }
 html body .sidebar div figure picture img {
   max-width: 90%;
@@ -496,4 +492,4 @@ input[type=checkbox]::before {
   }
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=styleDay.css.map */
