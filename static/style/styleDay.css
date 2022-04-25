@@ -68,6 +68,7 @@ html body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 html body .gradientMask {
   background-image: linear-gradient(#003333, #332000);
