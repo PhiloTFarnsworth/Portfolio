@@ -13,7 +13,7 @@ title = "Michael Gardner - In His Own Words"
   page = ['HTML', 'JSON']
 
 [params]
-  description = "Michael Gardner plays his greatest hits!"
+  description = "Michael Gardner plays his greatest hits! A non-stop thrill ride detailing the exciting projects, exotic languages and explosive implementations this developer has experienced."
   keywords = "Portfolio, Career, Web Development, HTML5, CSS3, Javascript, Go, Golang, Hugo, Developer, Software, Hire Me"
   author = "Michael Gardner"
   email = "Idodevthings@gmail.com"

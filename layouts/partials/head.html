@@ -4,9 +4,11 @@
 	<meta charset="UTF-8">
 	<!--SEO STUFF-->
 	<meta name="description" property="og:description" content="{{.Site.Params.Description}}">
-	<meta name="keywords" property="og:keywords"content="{{.Site.Params.Keywords}}">
+	<meta name="keywords" property="og:keywords" content="{{.Site.Params.Keywords}}">
 	<meta name="author" property="og:author" content="{{.Site.Params.Author}}">
-	<meta name="image" property="og:image" content="https://philotfarnsworth.github.io/Portfolio/images/desert.svg">
+	{{ with resources.Get "images/avatar.png" }}
+	<meta name="image" property="og:image" content="{{.Permalink}}">
+	{{ end }}
 	<meta name="title" property="og:title" content="{{.Site.Title}}">
 	<!--SEO STUFF END-->
 
