@@ -1,7 +1,7 @@
 ---
 title: "Portfolio"
 buzz: "You're Looking At It Now!"
-weight: 5
+weight: 1
 highlights: [
     "Immersive, lightweight (under 4mB total) web experience built with fundamental web development tools",
     "Utilized SVGs and Inkscape editor to create logos, convert raster images for scalable professional assets",

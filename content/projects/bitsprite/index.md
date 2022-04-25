@@ -1,6 +1,6 @@
 ---
 title: "Bitsprite"
-weight: 2
+weight: 3
 buzz: "A Free 8-bit Sprite Generator"
 highlights: [
     "Developed greater comfort with the Go Language",
