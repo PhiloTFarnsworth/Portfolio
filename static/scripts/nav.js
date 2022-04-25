@@ -3,11 +3,12 @@ let navigationIterations = 0;
 // Returns a promise to load content.  Expects a navElement (radio button) to a json file.  Sets 'main' element content and updates current page with
 // current 'weight', updates browser history.
 export const displayPage = async (navElement) => {
-    // TODO: start Animation
 
     const response = await fetch(navElement.value, { method: 'GET' })
     if (!response.ok) {
-        // TODO: Error message
+        document.querySelector('section').innerHTML = "<h1>Error</h1><p>Something went wrong, please refresh page</p>"
+        const baseURL = window.location.toString().replace(window.location.search, '')
+        history.pushState({}, '', baseURL)
         return null
     }
     const data = await response.json()
@@ -77,7 +78,7 @@ const populateProject = (data) => {
                     Array.from(div.firstElementChild.children).forEach((subElement, subindex) => {
                         if (subElement.tagName === 'IMG') {
                             subElement.setAttribute('src', data.permalink + images[subindex][index])
-                            subElement.setAttribute('alt', 'TODO: Figure out alts')
+                            subElement.setAttribute('alt', images[subindex][index].split(".")[0].split("/")[1])
                         } else {
                             subElement.setAttribute('srcset', data.permalink + images[subindex][index])
                         }

@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "OpenDyslexic";
-    src: url("fonts/OpenDyslexic-Regular.otf") format("opentype");
+    src: url("fonts/OpenDyslexic-Regular.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: "OpenDyslexic";
-    src: url("fonts/OpenDyslexic-Italic.otf") format("opentype");
+    src: url("fonts/OpenDyslexic-Italic.woff2") format("woff2");
     font-weight: normal;
     font-style: italic;
     font-display: swap;
@@ -18,7 +18,7 @@
 
 @font-face {
     font-family: "OpenDyslexic";
-    src: url("fonts/OpenDyslexic-Bold.otf") format("opentype");
+    src: url("fonts/OpenDyslexic-Bold.woff2") format("woff2");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -26,7 +26,7 @@
 
 @font-face {
     font-family: "OpenDyslexic";
-    src: url("fonts/OpenDyslexic-BoldItalic.otf") format("opentype");
+    src: url("fonts/OpenDyslexic-BoldItalic.woff2") format("woff2");
     font-weight: bold;
     font-style: italic;
     font-display: swap;
@@ -79,6 +79,9 @@ h6 {
 i {
     font-size: 3.5rem;
     color: $Primary;
+}
+i:hover {
+    text-shadow: 0.05rem 0.05rem $SecondaryLightTransp, -0.05rem -0.05rem $Primary;
 }
 
 a {
@@ -252,19 +255,20 @@ html {
             @include flexRow();
             justify-content: space-around;
             position: fixed;
-            left: 15vw;
+            left: 10vw;
             bottom: 2.5vh;
-            width: 70vw;
+            width: 80vw;
 
             a {
-                padding: 0.5rem;
-                min-height: 1.5rem;
-                min-width: 1.5rem;
+                padding: 0rem 1.25rem;
                 text-decoration: none;
 
                 font-size: xx-large;
 
                 line-height: 75%;
+            }
+            #pageMarker {
+                padding: 0rem;
             }
 
             // Radio navigation buttons

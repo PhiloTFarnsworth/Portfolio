@@ -8,9 +8,9 @@ highlights: [
 ]
 tools: []
 toolURLs: []
-projectURL:
-repoURL:
-projectStart: 
-projectEnd: 
+projectURL: ""
+repoURL: ""
+projectStart: "" 
+projectEnd: ""
 draft: false
 ---

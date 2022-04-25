@@ -1,4 +1,5 @@
 {{$URL := .Site.BaseURL }}
+
 <head>
 	<meta charset="UTF-8">
 	<!--SEO STUFF-->
@@ -6,21 +7,24 @@
 	<meta name="keywords" content="{{.Site.Params.Keywords}}">
 	<meta name="author" content="{{.Site.Params.Author}}">
 	<!--SEO STUFF END-->
-	
-    <meta name="viewport" content="width=device-width">
+
+	<meta name="viewport" content="width=device-width">
 	<meta http-equiv="Cache-control" content="public">
 	<link rel="canonical" href="{{ $URL }}" />
 
-    <!--Favicon STUFF-->
-        <!-- TODO -->
+	<!--Favicon STUFF-->
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.BaseURL }}favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.BaseURL }}favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.BaseURL }}favicon/favicon-16x16.png">
+	<link rel="manifest" href="{{ .Site.BaseURL }}favicon/site.webmanifest">
 	<!--Favicon STUFF END-->
-	
-    <!--Font STUFF-->
+
+	<!--Font STUFF-->
 	{{ range .Site.Params.Fonts }}
-		<link rel="preload" as="font" href="{{ $URL }}style/fonts/{{ . }}" crossorigin>
+	<link rel="preload" as="font" href="{{ $URL }}style/fonts/{{ . }}" crossorigin>
 	{{ end }}
 	<!--Font STUFF END-->
-	{{ if (and (eq .Page.Section "projects")  (eq (mod (int .Weight) 2) 0)) }}
+	{{ if (and (eq .Page.Section "projects") (eq (mod (int .Weight) 2) 0)) }}
 	<link rel="stylesheet" href="{{ $URL }}style/styleDay.css">
 	{{ else }}
 	<link rel="stylesheet" href="{{ $URL }}style/style.css">

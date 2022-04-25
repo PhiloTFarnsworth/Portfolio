@@ -1,0 +1,9 @@
+#bannerClouds {
+    animation: cloud-cross 30s linear 0s infinite normal;
+}
+
+@keyframes cloud-cross {
+    to {
+        transform: translateX(200%);
+    }
+}
