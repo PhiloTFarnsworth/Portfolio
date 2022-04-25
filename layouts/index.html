@@ -7,7 +7,7 @@
     <script type="module" src='{{.Site.BaseURL}}scripts/home.js'></script>
     <div class="gradientMask"></div>
     {{ partial "background" .}}
-    <section>
+    <section aria-atomic="true" aria-live="assertive">
         {{$first := index (where .Site.RegularPages "Section" "projects") 0}}
         {{ partial "projectHead" $first }}
         <main>
