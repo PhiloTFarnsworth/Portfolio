@@ -110,7 +110,7 @@ html {
             position: absolute;
             width: 100vw;
             height: 100vh;
-            animation: background-gradient-to-night 5s ease-out 1s 1 normal forwards;
+            animation: background-gradient-to-night 5s ease-out 1s 1 reverse forwards;
             z-index: -2;
         }
 
@@ -135,14 +135,14 @@ html {
             left: 15vw;
             overflow-y: hidden;
 
-            background-color: rgba(255, 230, 200, 0.85);
-            border-top: 5px solid $Secondary;
-            border-bottom: 5px solid $Primary;
-            border-radius: 20px;
+            border-top: 5px solid $SecondaryDark;
+            border-bottom: 5px solid $PrimaryDark;
+            background-color: $SecondaryDarkTransp;
+            color: $PrimaryLight;
 
             color: rgb(16, 0, 64);
 
-            animation: initial-border-shift 2.5s ease-out 1s 1 normal forwards,
+            animation: initial-border-shift 2.5s ease-out 1s 1 reverse forwards,
                 content-expand 1.5s ease-out 2s 1 normal forwards;
 
             .bannerLogo {
@@ -316,8 +316,8 @@ html {
             left: 0;
             width: 5vw;
             height: 100vh;
-            background-color: $SecondaryDarkTransp;
-            color: $PrimaryLight;
+            background-color: $SecondaryLightTransp;
+            color: $PrimaryDark;
             #sidebarExpand {
                 display: flex;
                 font-size: xx-large;
@@ -351,8 +351,8 @@ html {
                     width: 100%;
                     padding: 0;
                     margin: 0;
-                    background-color: $PrimaryDarkTransp;
-                    color: $SecondaryLight;
+                    background-color: $Secondary;
+                    color: $PrimaryDark;
                     picture {
                         img {
                             max-width: 90%;

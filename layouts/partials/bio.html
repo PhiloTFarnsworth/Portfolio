@@ -2,6 +2,9 @@
 <p id="sidebarExpand" title="click to expand">></p>
 <p id="sidebarCollapse">Click away to Collapse</p>
 <div id="biographical">
+    {{if (not (eq .Page.Section "projects"))}}
+    <p>Hate Javascript? Check out the <a href="{{.Permalink}}projects/">static site</a>!</p>
+    {{ end }}
     <figure id="avatarHolder">
         {{ partial "image" (resources.Get "images/avatar.png")}}
     </figure>

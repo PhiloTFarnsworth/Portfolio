@@ -1,2 +1,9 @@
+{{ if (and (eq .Page.Section "projects")  (eq (mod (int .Weight) 2) 0)) }}
+{{ $image := resources.Get "images/desertDay.svg" }}
+<object id="backgroundSVG" type="image/svg+xml" data="{{$image.Permalink}}" title="Desert Landscape Background"></object>
+{{ else }}
 {{ $image := resources.Get "images/desert.svg" }}
 <object id="backgroundSVG" type="image/svg+xml" data="{{$image.Permalink}}" title="Desert Landscape Background"></object>
+{{ end }}
+
+
