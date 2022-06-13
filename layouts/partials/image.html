@@ -1,5 +1,7 @@
 <picture id='{{strings.TrimPrefix "images/" (strings.TrimSuffix ".png" .Name)}}'>
     <source srcset='{{ strings.TrimSuffix ".png" .Permalink }}.avif' type='image/avif' />
     <source srcset='{{ strings.TrimSuffix ".png" .Permalink }}.webp' type='image/webp' />
-    <img src='{{ .Permalink }}' alt='{{strings.TrimPrefix "media/" (strings.TrimPrefix "images/" (strings.TrimSuffix ".png" .Name))}}' loading='lazy'/>
+    <img src='{{ .Permalink }}' 
+    alt='{{replace (strings.TrimPrefix "media/" (strings.TrimPrefix "images/" (strings.TrimSuffix ".png" .Name))) "-" " "}}' 
+    loading='lazy'/>
 </picture>
