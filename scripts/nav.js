@@ -2,8 +2,7 @@ let navigationIterations = 0;
 
 // Returns a promise to load content.  Expects a navElement (radio button) to a json file.  Sets 'main' element content and updates current page with
 // current 'weight', updates browser history.
-export const displayPage = async (navElement) => {
-
+export const displayPage = async (navElement, historical) => {
     const response = await fetch(navElement.value, { method: 'GET' })
     if (!response.ok) {
         document.querySelector('section').innerHTML = "<h1>Error</h1><p>Something went wrong, please refresh page</p>"
@@ -14,11 +13,12 @@ export const displayPage = async (navElement) => {
     const data = await response.json()
     // See single.json.json for JSON template
     populateProject(data)
-    // update history pointing to static site page (for now).
-    const baseURL = window.location.toString().replace(window.location.search, '')
-    history.pushState({}, '', baseURL + '?page=' + data.weight)
+    if (historical) {
+        // update history
+        const baseURL = window.location.toString().replace(window.location.search, '')
+        history.pushState({}, '', baseURL + '?page=' + data.weight)
+    }
     navElement.checked = true
-    // navButtonHandler(navElement)
 }
 
 // Pass data from request to populate Project, then use that data to populate project fields.
@@ -99,7 +99,7 @@ export const navRadioInitiator = () => {
             const background = document.querySelector('#backgroundSVG').contentDocument
             const viewport = background.querySelector('#viewportSVG')
             await transitionStart()
-            displayPage(bubble.lastElementChild)
+            displayPage(bubble.lastElementChild, true)
             if (window.getComputedStyle(viewport).getPropertyValue('opacity') == '0') {
                 //Day to night
                 diurnalTransition('day', 2500)
